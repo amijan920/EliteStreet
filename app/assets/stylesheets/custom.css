@@ -1,0 +1,138 @@
+body {
+	font-family: 'Cabin', sans-serif;
+	background: #EEEEEE;
+	background: url(bg4.gif);
+}
+
+.navbar {
+	background: #DB9E36;
+}
+
+.navbar-default .navbar-brand {
+	font-family: 'Berkshire Swash', cursive;
+	transition: background ease .3s;
+	color: #FFFFFF;
+}
+
+.navbar-default .navbar-brand:hover {
+	background-color: #e5aa53;
+	color: #FFFFFF;
+}
+
+.navbar-default .navbar-nav > li > a{
+	color: #FFFFFF;
+	transition: background ease .3s;
+	font-family: 'Cabin', sans-serif;
+}
+
+.navbar-default .navbar-nav > li > a:hover{
+	color: #FFFFFF;
+	background-color: #e5aa53;
+}
+
+.navbar-default .navbar-nav > li > a.active{
+	color: #FFFFFF;
+	background-color: #e5aa53;
+}
+
+.navbar-default .navbar-nav > li > a:focus{
+	color: #FFFFFF;
+}
+
+.full-body {
+	margin-top: 100px;
+	margin-bottom: 0px;
+	background-color: transparent;
+	/*text-align: right;*/
+	color: #105B63;
+	color: #222222;
+}
+
+.full-body h1{
+	font-family: 'Berkshire Swash', cursive;
+	color: #105B63;
+}
+
+.footer {
+	bottom: 0;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	font-size: 11pt;
+}
+
+
+
+.img-logo {
+	/*background-color: #105B63;*/
+	width:150px;
+	height:150px;
+	/*border-radius: 75px;*/
+}
+
+#mission {
+	margin-top:250px;
+	color:#222222;
+	text-align: center;
+	font-size:1.2em;
+}
+
+#mission .heading {
+	font-size: 2.2em;
+	font-weight: 500;
+	color: #105B63;
+	margin-bottom: 0px;
+}
+
+/* Carousel base class */
+.carousel {
+  height: 600px;
+  margin-bottom: 0px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+	text-decoration: none;
+	text-shadow:none;
+  z-index: 10;
+}
+
+.carousel-indicators li {
+	border-color:#105b63;
+}
+
+.carousel-indicators li.active {
+	background:#105b63;
+}
+
+.carousel-control {
+	text-shadow:none;
+	color:#105b63;
+}
+
+.carousel-control:hover {
+	color:#105b63;
+}
+
+.carousel-control:focus {
+	color:#105b63;
+}
+
+.carousel-control.right {
+	background-image:none;
+}
+
+.carousel-control.left {
+	background-image:none;
+}
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 500px;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
+}
+
+/*BD4932, DB9E36, FFD34E, FFFAD5, 105B63*/

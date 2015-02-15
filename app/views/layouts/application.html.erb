@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EliteStreet</title>
+  <link href='http://fonts.googleapis.com/css?family=Cabin:400,500' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Bubblegum+Sans' rel='stylesheet' type='text/css'>
+  <!-- <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<%= render("navigation")%>
+		</div>
+
+		<div class="row">
+			<%= yield %>
+		</div>
+
+		<div class="row">
+			<div class="footer text-center col-md-12">
+				<small>© 2015 EliteStreet | Ang | Reveche | Sanchez | Tolentino</small>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
