@@ -9,12 +9,16 @@ function ready() {
 		table += "<tr><th>Initiative</th><th>Operating Costs</th><th>Capital Costs</th></tr>";
 
 		for(var k = 0; k < initiatives[i][j].length; k++) {
-			table+= "<tr><td>" + initiatives[i][j][k].name + "</td><td>" + initiatives[i][j][k].operating_cost + "</td><td>" + initiatives[i][j][k].capital_cost + "</td></tr>";
+			table+= "<tr><td>" + initiatives[i][j][k].name + "</td><td class=\"number-cell\">" + initiatives[i][j][k].operating_cost + "</td><td class=\"number-cell\">" + initiatives[i][j][k].capital_cost + "</td></tr>";
 		}
 
 		table += "</table>";
 
-		$('#init-modal').find(".modal-body").html(table);
+		$('#init-modal').find(".modal-body .modal-table").html(table);
+
+		$('#init-modal').find(".modal-body .good-cell.val").text(kpi_list[i][j].good);
+		$('#init-modal').find(".modal-body .warning-cell.val").text(kpi_list[i][j].warning);
+		$('#init-modal').find(".modal-body .bad-cell.val").text(kpi_list[i][j].bad);
 
 		$('#init-modal').modal('show');
 		e.stopPropagation();

@@ -247,7 +247,12 @@ body {
 }
 
 .dept-kpi {
+	border-bottom:1px solid #E5E5E5;
 	/*margin-top:24px;*/
+}
+
+.dept-kpi table {/*
+	margin-bottom: 0px;*/
 }
 
 .dept-heading {
@@ -319,17 +324,41 @@ body {
 }
 
 .active-name {
+	padding:4px;
 	background: #1d6b72;
 	color:#FFFFFF;
 }
 
 .details, .kpi-entry.active .details {
-	background: #1D6B72;
+	/*background: #CC5542;
+	color:#FFFFFF;*/
+}
+
+#modal-head {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	background: #105B63;
 	color:#FFFFFF;
 }
+
 
 #init-modal table {
 	margin-bottom: 0px;
 }
+
+#init-modal .modal-dialog {
+	margin-top:100px;
+}
+
+#init-modal .levels {
+	margin-bottom:16px;
+}
+
+
+#init-modal .number-cell {
+	text-align: right;
+}
+
+
 
 /*BD4932, DB9E36, FFD34E, FFFAD5, 105B63*/
