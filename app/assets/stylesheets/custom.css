@@ -92,6 +92,13 @@ body {
 }
 
 #mission {
+	margin-top:260px;
+	color:#222222;
+	text-align: center;
+	font-size:1.2em;
+}
+
+#vision {
 	margin-top:250px;
 	color:#222222;
 	text-align: center;
@@ -119,6 +126,13 @@ body {
 }
 
 #mission .heading {
+	font-size: 2.2em;
+	font-weight: 500;
+	color: #105B63;
+	margin-bottom: 0px;
+}
+
+#vision .heading {
 	font-size: 2.2em;
 	font-weight: 500;
 	color: #105B63;
@@ -192,16 +206,40 @@ body {
 	text-align: center;
 }
 
+.kpi-table .kpi-entry:hover .good-cell{
+	background: #387a3d;
+}
+
+.kpi-table .kpi-entry.active .good-cell{
+	background: #387a3d;
+}
+
 .warning-cell {
 	background: #db9e34;
 	color:#FFFFFF;
 	text-align: center;
 }
 
+.kpi-table .kpi-entry:hover .warning-cell{
+	background: #e2a347;
+}
+
+.kpi-table .kpi-entry.active .warning-cell{
+	background: #e2a347;
+}
+
 .bad-cell {
 	background: #bd4931;
 	color:#FFFFFF;
 	text-align: center;
+}
+
+.kpi-table .kpi-entry:hover .bad-cell{
+	background: #cc5542;
+}
+
+.kpi-table .kpi-entry.active .bad-cell{
+	background: #cc5542;
 }
 
 .dept-kpi {
@@ -216,8 +254,64 @@ body {
 	text-align: left;
 }
 
+.dept-heading .small{
+	padding:2px;
+	font-size:.8em;
+	color:rgba(255, 255, 255, .5);
+	float:right;
+}
+
 .kpi-table td{
 	vertical-align: middle !important;
+}
+
+.kpi-table .kpi-entry:hover {
+	background: #F5F5F5;
+	cursor: pointer;
+}
+
+.kpi-table .kpi-entry.active {
+	background: #E5E5E5;
+	cursor: pointer;
+}
+
+.graph-container {
+	border:solid 1px #CCCCCC;
+	height:400px;
+}
+
+.graph-container .svg-container{
+	height:280px;
+	/*background: #CCCCCC;*/
+}
+
+.graph-container .graph-desc{
+	border-top:solid 1px #CCCCCC;
+	border-bottom:solid 1px #CCCCCC;
+	background: #F0F0F0;
+	height:120px;
+	padding:8px;
+}
+
+.graph-container .graph-desc p {
+	font-size: .9em;
+	text-align: justify;
+}
+
+.graph-container .graph-title{
+	font-family: 'Cabin', sans-serif;
+	font-size: 1.4em;
+	color:#105b63;
+	text-align: left;
+}
+
+.kpi-svg {
+	height:100px;
+	background:#E5E5E5;
+}
+
+.active-details{
+
 }
 
 /*BD4932, DB9E36, FFD34E, FFFAD5, 105B63*/

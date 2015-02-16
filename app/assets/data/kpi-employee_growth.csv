@@ -1,0 +1,4 @@
+"Department","Measure","Initiatives","Good","Warning","Bad"
+"Human Resources","Make sure employees have a minimum amount of Training hours before being sent out to work","Employee Training Program","≥24hrs","20-23","<20%"
+"Human Resources","Maintain at most 1 Absence per employee per month","Employee Management & HealthCare, Sanitation Program","≤1","2-3",">3"
+"Human Resources","Increase annual employee retainment","Employee of the month bonus, Employee benefits","≥90%","85-89%","<85%"

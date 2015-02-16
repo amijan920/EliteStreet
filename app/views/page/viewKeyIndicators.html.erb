@@ -11,31 +11,41 @@
 				</div>
 			</div>
 
-			<% @kpis.each do |dept| %>
+			<% @kpis.each_with_index do |dept, i| %>
 				<div class="sub-content" align="center" >
 					<div class="row">
 						<div class="col-md-12" >
 							<div class="dept-kpi">
 								<div class="dept-heading" align="center">
-									<%= dept["dept"] %>
+									<%= dept["dept"] %><div class="small">click row to see more details</div>
+								</div>
+								<div class="kpi-svg">
+								</div>
+								<div class="active-details">
 								</div>
 								<table class="table kpi-table">
 									<tr>
-										<th class="col-md-1">Perspective</th>
+										<th class="col-md-3">Perspective</th>
 										<th class="col-md-5">Measure</th>
 										<!-- <th class="col-md-3">Initiative</th> -->
+										<th class="col-md-1">Value</th>
 										<th class="meas-cell col-md-1">Good</th>
 										<th class="meas-cell col-md-1">Warning</th>
 										<th class="meas-cell col-md-1">Bad</th>
 									</tr>
-									<% dept["kpis"].each do |row|%>
-										<tr>
+									<% dept["kpis"].each_with_index do |row, j|%>
+										<% if j == 0 %>
+											<tr class="kpi-entry active" data-dept="<%=i%>" data-index="<%=j%>">
+										<% else %>
+											<tr class="kpi-entry" data-dept="<%=i%>" data-index="<%=j%>">
+										<%end%>
 											<td><%= row["Perspective"] %></td>
 											<td><%= row["Measure"] %></td>
+											<td></td>
 											<!-- <td><%= row["Initiatives"] %></td> -->
 											<td class="good-cell"><%= row["Good"] %></td>
 											<td class="warning-cell"><%= row["Warning"] %></td>
-											<td class="bad-cell"><%= row["Good"] %></td>
+											<td class="bad-cell"><%= row["Bad"] %></td>
 										</tr>
 									<% end %>
 								</table>
