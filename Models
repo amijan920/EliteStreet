@@ -1,0 +1,33 @@
+Perspective 
+	name:string
+
+rails g model Perspective name:string
+
+Department
+	name:string
+
+rails g model Department name:string
+
+Keypi
+	perspective:references
+	department:references
+	measure:text
+	good_m:integer
+	good_d:decimal
+	good:string
+	warning:string
+	warning_m:integer
+	warning_d:decimal
+	bad:string
+	bad_m:integer
+	bad_d:decimal
+	value:decimal
+
+rails g model Keypi Perspective:references Department:references measure:text good:string warning:string bad:string value:decimal good_d:decimal warning_d:decimal bad_d:decimal good_m:integer warning_m:integer bad_m:integer
+
+Initiatives
+	keypi:references
+	operating_cost:decimal
+	capital_cost:decimal
+
+rails g model Initiatives Keypi:references operating_cost:decimal capital_cost:decimal

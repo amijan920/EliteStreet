@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Keypi_id: 
+  operating_cost: 
+  capital_cost: 
+
+two:
+  Keypi_id: 
+  operating_cost: 
+  capital_cost: 

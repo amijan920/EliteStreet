@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Perspective_id: 
+  Department_id: 
+  measure: MyText
+  good: MyString
+  warning: MyString
+  bad: MyString
+  value: 
+  good_d: 
+  warning_d: 
+  bad_d: 
+  good_m: 1
+  warning_m: 1
+  bad_m: 1
+
+two:
+  Perspective_id: 
+  Department_id: 
+  measure: MyText
+  good: MyString
+  warning: MyString
+  bad: MyString
+  value: 
+  good_d: 
+  warning_d: 
+  bad_d: 
+  good_m: 1
+  warning_m: 1
+  bad_m: 1

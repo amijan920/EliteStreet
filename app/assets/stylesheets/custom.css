@@ -234,6 +234,10 @@ body {
 	text-align: center;
 }
 
+.neutral-cell {
+	text-align: center;
+}
+
 .kpi-table .kpi-entry:hover .bad-cell{
 	background: #cc5542;
 }
@@ -312,6 +316,20 @@ body {
 
 .active-details{
 
+}
+
+.active-name {
+	background: #1d6b72;
+	color:#FFFFFF;
+}
+
+.details, .kpi-entry.active .details {
+	background: #1D6B72;
+	color:#FFFFFF;
+}
+
+#init-modal table {
+	margin-bottom: 0px;
 }
 
 /*BD4932, DB9E36, FFD34E, FFFAD5, 105B63*/
