@@ -7,7 +7,7 @@ body {
 .navbar {
 	background: #DB9E36;
 	border-bottom: #c68932;
-	box-shadow: 0 2px 0px rgba(0,0,0,0.1);
+	box-shadow: 0 3px 0px rgba(0,0,0,0.1);
 }
 
 .navbar-default .navbar-brand {
@@ -373,16 +373,24 @@ body {
 }
 
 .axis text {
-  color:#AAAAAA;
-  fill:#AAAAAA;
+	font-size: .7em;
+  color:#888888;
+  fill:#888888;
 }
 
 .x.axis path {
   /*display: none;*/
 }
 
-.bar {
-	width:80px;
+.bar:hover {
+	cursor:pointer;
+	fill:#C75048;
+}
+
+.pie-legend {
+	font-size:.8em;
+	color:#888888;
+	fill:#888888;
 }
 
 

@@ -49,6 +49,8 @@
 						<div class="col-md-6" >
 							<div class="graph-container">
 								<div class="svg-container">
+									<svg id="svg-places" class="survey-svg">
+									</svg>
 								</div>
 								<div class="graph-desc">
 									<div class="graph-title">
@@ -108,5 +110,6 @@
 <script>
 	var flavors = <%= raw @flavors.to_json %>
 	var allowances = <%= raw @allowances.to_json%>
-	console.log(allowances);
+	var places = <%= raw @places.to_json%>
+	console.log(places);
 </script>

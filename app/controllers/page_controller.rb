@@ -62,12 +62,52 @@ class PageController < ApplicationController
 		@allowances[1]["name"] = "P4,500 to P6,000"
 		@allowances[2]["name"] = "P6,001 to P7,500"
 		@allowances[3]["name"] = "P7,501 to P9,000"
-		@allowances[4]["name"] = "more than P9000Flavor Powders"
+		@allowances[4]["name"] = "more than P9000"
 
 		@survey_results.each do |survey|
 			@allowances[survey.allowance]["quantity"] += 1
 		end
 
+		@places = Array.new(8);
+		@places.each_with_index do |d, i|
+			@places[i] = {"name" => "", "quantity" => 0}
+		end
+
+		@places[0]["name"] = "Strt. Vendors"
+		@places[1]["name"] = "Tiangges"
+		@places[2]["name"] = "Parks"
+		@places[3]["name"] = "Supermarket"
+		@places[4]["name"] = "Mallstalls"
+		@places[5]["name"] = "JSEC"
+		@places[6]["name"] = "Schools"
+		@places[7]["name"] = "UP"
+
+		@survey_results.each do |survey|
+			if survey.place_1
+				@places[0]["quantity"] = @places[0]["quantity"] + 1
+			end
+			if survey.place_2
+				@places[1]["quantity"] = @places[1]["quantity"] + 1
+			end
+			if survey.place_3
+				@places[2]["quantity"] = @places[2]["quantity"] + 1
+			end
+			if survey.place_4
+				@places[3]["quantity"] = @places[3]["quantity"] + 1
+			end
+			if survey.place_5
+				@places[4]["quantity"] = @places[4]["quantity"] + 1
+			end
+			if survey.place_6
+				@places[5]["quantity"] = @places[5]["quantity"] + 1
+			end
+			if survey.place_7
+				@places[6]["quantity"] = @places[6]["quantity"] + 1
+			end
+			if survey.place_8
+				@places[7]["quantity"] = @places[7]["quantity"] + 1
+			end
+		end
 
 
 		@page = 'dashboard'

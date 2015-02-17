@@ -1,6 +1,10 @@
 function createFlavorGraph(data) {
 	$context = $("#svg-flavor");
 
+	data.sort(function(a, b) {
+		return a.quantity < b.quantity;
+	});
+
 	var margin = {top:16, right:16, bottom:30, left:32};
 	var height = $context.height() - margin.top - margin.bottom;
 	var width = $context.width() - margin.right - margin.left;
@@ -77,37 +81,145 @@ function createAllowanceGraph(data) {
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-  
-  console.log($svg);
-  var myScale = d3.scale.linear()
-  	.domain([0, 100])
+
+  var sum = 0;
+  var fixed_allowances = [];
+  var color_scale = ["#BD4932", "#DB9E36", "#FFD34E", "#105B63", "#FFFAD5"];
+
+  for(var i = 0; i < 5; i++) {
+  	fixed_allowances.push({
+  		range:[sum, (sum+data[i].quantity)],
+  		name:data[i].name,
+  		color:color_scale[i]
+  	});
+  	sum += data[i].quantity;
+  }
+
+  var scale = d3.scale.linear()
+  	.domain([0, sum])
   	.range([0, 2 * Math.PI]);
 
-	// var arc = d3.svg.arc()
- //  	.innerRadius(50)
- //  	.outerRadius(100)
- //  	.startAngle(0 + Math.PI/4*0)
- //  	.endAngle(2*Math.PI);
-
-	// $svg.append("path")
- //    .attr("d", arc)
- //    .attr("stroke", "black")
- //    .attr("fill", "red");
- //    .attr("transform", "translate(300,200)");
+	var arc = d3.svg.arc()
+  	.innerRadius(40)
+  	.outerRadius(80)
+  	.startAngle(function(d) {
+  		return scale(d.range[0]);
+  	})
+  	.endAngle(function(d) {
+  		return scale(d.range[1]);
+  	});
 
 	$svg.selectAll("path")
-      .data(data)
+      .data(fixed_allowances)
     .enter()
     	.append("path")
-    	.attr("d", function(d, i) {
-    		return d3.svg.arc()
-			  	.innerRadius(50)
-			  	.outerRadius(100)
-			  	.startAngle(0 + Math.PI/4*0)
-			  	.endAngle(2*Math.PI);
-    	})
-      .attr("transform", "translate("+(width/2)+","+(height/2)+")");
+    	.attr("d", arc)
+    	.attr("fill", function(d){ return d.color; })
+      .attr("transform", "translate("+(width/2)+","+(height/2 - 20)+")");
+
+  $svg.selectAll(".pie-legend")
+  		.data(fixed_allowances)
+  	.enter()
+  		.append("text")
+  		.attr("class", "pie-legend")
+  		.text(function(d) {
+  			return d.name;
+  		})
+  		.attr("x", function(d, i) {
+  			return (width/2 - (1.5*130)) + (i%3)*130 + 15//(width*4/6))
+  		})
+  		.attr("y", function(d, i) {
+  			return height - 16 + 16 * Math.floor(i/3);//height/2 - (2.5*16) + i*16;
+  		} );
+
+  $svg.selectAll(".pie-legend-square")
+  		.data(fixed_allowances)
+  	.enter()
+  		.append("rect")
+  		.attr("class", "pie-legend-square")
+  		.attr("fill", function(d) {
+  			return d.color;
+  		})
+  		.attr("width", 10)
+  		.attr("height", 10)
+  		.attr("x", function(d, i) {
+  			return (width/2 - (1.5*130)) + (i%3)*130 - 18 + 15//(width*4/6))
+  		})
+  		.attr("y", function(d, i) {
+  			return height - 16 - 8 + 16 * Math.floor(i/3);//height/2 - (2.5*16) + i*16 - 8;
+  		} );
  //      // .on('mouseover', tip.show)
+      // .on('mouseout', tip.hide)
+}
+
+function createPlacesGraph(data) {
+	$context = $("#svg-places");
+
+	var margin = {top:16, right:16, bottom:30, left:32};
+	var height = $context.height() - margin.top - margin.bottom;
+	var width = $context.width() - margin.right - margin.left;
+
+	// var formatPercent = d3.format(".0%");
+	var x = d3.scale.ordinal()
+	    .rangeRoundBands([0, width], .1);
+	var y = d3.scale.linear()
+	    .range([height, 0]);
+	var xAxis = d3.svg.axis()
+	    .scale(x)
+	    .orient("bottom");
+
+	var yAxis = d3.svg.axis()
+	    .scale(y)
+	    .orient("left")
+	    // .tickFormat(formatPercent);
+
+	var $svg = d3.select("#svg-places")
+		.attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	// var tip = d3.tip()
+	//   .attr('class', 'd3-tip')
+	//   .offset([-10, 0])
+	//   .html(function(d) {
+	//     return "<strong>Frequency:</strong> <span style='color:red'>" + d.frequency + "</span>";
+	//   })
+
+	data.sort(function(a, b) {
+		return a.quantity < b.quantity;
+	});
+
+
+ 	x.domain(data.map(function(d) { return d.name; }));
+  y.domain([0, d3.max(data, function(d) { return d.quantity; })]);
+
+  $svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  $svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end");
+      // .text("Count");
+
+	$svg.selectAll("rect")
+      .data(data)
+    .enter()
+    	.append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d, i) { return x(d.name) + 5; })
+      .attr("width", 40)
+      .attr("y", function(d, i) { return y(d.quantity); })
+      .attr("height", function(d) { return height - y(d.quantity); })
+      .attr("fill", "#bd4931");
+      // .on('mouseover', tip.show)
       // .on('mouseout', tip.hide)
 }
 
@@ -154,6 +266,9 @@ function ready() {
 
 	if(allowances)
 		createAllowanceGraph(allowances);
+
+	if(places)
+		createPlacesGraph(places);
 }
 
 $(document).ready(ready)
