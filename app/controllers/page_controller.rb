@@ -144,7 +144,19 @@ class PageController < ApplicationController
 			@willingness_to_pay[survey.much_2]["quantity"] += 1
 		end
 
-		
+		@cleanliness = Array.new(4)
+		@cleanliness.each_with_index do |d, i|
+			@cleanliness[i] = {"name" => "", "quantity" => 0}
+		end
+
+		@cleanliness[0]["name"] = "Not that important"
+		@cleanliness[1]["name"] = "A little important"
+		@cleanliness[2]["name"] = "Quite important"
+		@cleanliness[3]["name"] = "Extremely important"
+
+		@survey_results.each do |survey|
+			@cleanliness[survey.qual_3]["quantity"] += 1
+		end
 
 		@page = 'dashboard'
 	end
