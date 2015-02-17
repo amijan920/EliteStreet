@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216150413) do
+ActiveRecord::Schema.define(version: 20150217002430) do
 
   create_table "departments", force: true do |t|
     t.string   "name"
@@ -55,6 +55,41 @@ ActiveRecord::Schema.define(version: 20150216150413) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "surveyresults", force: true do |t|
+    t.integer  "age"
+    t.boolean  "enrolled"
+    t.integer  "allowance"
+    t.integer  "salary"
+    t.boolean  "freq_1"
+    t.boolean  "freq_2"
+    t.boolean  "freq_3"
+    t.boolean  "freq_4"
+    t.boolean  "freq_5"
+    t.boolean  "freq_6"
+    t.boolean  "place_1"
+    t.boolean  "place_2"
+    t.boolean  "place_3"
+    t.boolean  "place_4"
+    t.boolean  "place_5"
+    t.boolean  "place_6"
+    t.boolean  "place_7"
+    t.boolean  "place_8"
+    t.integer  "much_1"
+    t.boolean  "flavor_1"
+    t.boolean  "flavor_2"
+    t.integer  "willingness"
+    t.integer  "much_2"
+    t.integer  "qual_1"
+    t.integer  "qual_2"
+    t.integer  "qual_3"
+    t.integer  "qual_4"
+    t.integer  "qual_5"
+    t.integer  "qual_6"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "flavor_3"
   end
 
 end

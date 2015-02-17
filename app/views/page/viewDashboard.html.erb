@@ -16,10 +16,12 @@
 						<div class="col-md-6" >
 							<div class="graph-container">
 								<div class="svg-container">
+									<svg id="svg-flavor" class="survey-svg">
+									</svg>
 								</div>
 								<div class="graph-desc">
 									<div class="graph-title">
-										Favorite Topping
+										Favorite topping
 									</div>
 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 								</div>
@@ -30,6 +32,10 @@
 								<div class="svg-container">
 								</div>
 								<div class="graph-desc">
+									<div class="graph-title">
+										Participants' allowance bracket
+									</div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 								</div>
 							</div>
 						</div>
@@ -43,6 +49,10 @@
 								<div class="svg-container">
 								</div>
 								<div class="graph-desc">
+									<div class="graph-title">
+										Places where street-food is bought
+									</div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 								</div>
 							</div>
 						</div>
@@ -51,6 +61,39 @@
 								<div class="svg-container">
 								</div>
 								<div class="graph-desc">
+									<div class="graph-title">
+										Willingness to buy product
+									</div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="sub-content" align="center" >
+					<div class="row">
+						<div class="col-md-6" >
+							<div class="graph-container">
+								<div class="svg-container">
+								</div>
+								<div class="graph-desc">
+									<div class="graph-title">
+										Willingness to pay
+									</div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6" >
+							<div class="graph-container">
+								<div class="svg-container">
+								</div>
+								<div class="graph-desc">
+									<div class="graph-title">
+										Frequency of buying street-food
+									</div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 								</div>
 							</div>
 						</div>
@@ -59,3 +102,9 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	var flavors = <%= raw @flavors.to_json %>
+	var allowances = <%= raw @allowances.to_json%>
+	console.log(allowances);
+</script>

@@ -359,6 +359,31 @@ body {
 	text-align: right;
 }
 
+.survey-svg {
+	width:100%;
+	height: 100%;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #888888;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  color:#AAAAAA;
+  fill:#AAAAAA;
+}
+
+.x.axis path {
+  /*display: none;*/
+}
+
+.bar {
+	width:80px;
+}
+
 
 
 /*BD4932, DB9E36, FFD34E, FFFAD5, 105B63*/

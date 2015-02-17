@@ -31,3 +31,45 @@ Initiatives
 	capital_cost:decimal
 
 rails g model Initiatives Keypi:references operating_cost:decimal capital_cost:decimal
+
+
+Surveyresult
+	age:integer
+	enrolled:boolean
+	allowance:integer
+	salary:integer
+	freq_1:boolean
+	freq_2:boolean
+	freq_3:boolean
+	freq_4:boolean
+	freq_5:boolean
+	freq_6:boolean
+
+	place_1:boolean
+	place_2:boolean
+	place_3:boolean
+	place_4:boolean
+	place_5:boolean
+	place_6:boolean
+	place_7:boolean
+	place_8:boolean
+
+	much_1:integer
+
+	flavor_1:boolean
+	flavor_2:boolean
+	flavor_3:boolean
+
+	willingness:integer
+
+	much_2:integer
+
+	qual_1:integer
+	qual_2:integer
+	qual_3:integer
+	qual_4:integer
+	qual_5:integer
+	qual_6:integer
+
+
+rails g model Surveyresult age:integer enrolled:boolean allowance:integer salary:integer freq_1:boolean freq_2:boolean freq_3:boolean freq_4:boolean freq_5:boolean freq_6:boolean place_1:boolean place_2:boolean place_3:boolean place_4:boolean place_5:boolean place_6:boolean place_7:boolean place_8:boolean much_1:integer flavor_1:boolean flavor_2:boolean flavor_2:boolean willingness:integer much_2:integer qual_1:integer qual_2:integer qual_3:integer qual_4:integer qual_5:integer qual_6:integer

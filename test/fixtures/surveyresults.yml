@@ -1,0 +1,65 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  age: 1
+  enrolled: false
+  allowance: 1
+  salary: 1
+  freq_1: false
+  freq_2: false
+  freq_3: false
+  freq_4: false
+  freq_5: false
+  freq_6: false
+  place_1: false
+  place_2: false
+  place_3: false
+  place_4: false
+  place_5: false
+  place_6: false
+  place_7: false
+  place_8: false
+  much_1: 1
+  flavor_1: false
+  flavor_2: false
+  flavor_2: false
+  willingness: 1
+  much_2: 1
+  qual_1: 1
+  qual_2: 1
+  qual_3: 1
+  qual_4: 1
+  qual_5: 1
+  qual_6: 1
+
+two:
+  age: 1
+  enrolled: false
+  allowance: 1
+  salary: 1
+  freq_1: false
+  freq_2: false
+  freq_3: false
+  freq_4: false
+  freq_5: false
+  freq_6: false
+  place_1: false
+  place_2: false
+  place_3: false
+  place_4: false
+  place_5: false
+  place_6: false
+  place_7: false
+  place_8: false
+  much_1: 1
+  flavor_1: false
+  flavor_2: false
+  flavor_2: false
+  willingness: 1
+  much_2: 1
+  qual_1: 1
+  qual_2: 1
+  qual_3: 1
+  qual_4: 1
+  qual_5: 1
+  qual_6: 1
