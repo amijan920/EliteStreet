@@ -68,7 +68,7 @@ class PageController < ApplicationController
 			@allowances[survey.allowance]["quantity"] += 1
 		end
 
-		@places = Array.new(8);
+		@places = Array.new(8)
 		@places.each_with_index do |d, i|
 			@places[i] = {"name" => "", "quantity" => 0}
 		end
@@ -109,6 +109,42 @@ class PageController < ApplicationController
 			end
 		end
 
+		@willingness = Array.new(4)
+		@willingness.each_with_index do |d, i|
+			@willingness[i] = {"name" => "", "quantity" => 0}
+		end
+
+		@willingness[0]["name"] = "Not very"
+		@willingness[1]["name"] = "So-so"
+		@willingness[2]["name"] = "Willing"
+		@willingness[3]["name"] = "Very willing"
+
+		@survey_results.each do |survey|
+			@willingness[survey.willingness]["quantity"] += 1
+		end
+
+		@willingness_to_pay = Array.new(11)
+		@willingness_to_pay.each_with_index do |d, i|
+			@willingness_to_pay[i] = {"name" => "", "quantity" => 0}
+		end
+
+		@willingness_to_pay[0]["name"] = "less than P10"
+		@willingness_to_pay[1]["name"] = "P11 to P20"
+		@willingness_to_pay[2]["name"] = "P21 to P30"
+		@willingness_to_pay[3]["name"] = "P31 to P40"
+		@willingness_to_pay[4]["name"] = "P41 to P50"
+		@willingness_to_pay[5]["name"] = "P51 to P60"
+		@willingness_to_pay[6]["name"] = "P61 to P70"
+		@willingness_to_pay[7]["name"] = "P71 to P80"
+		@willingness_to_pay[8]["name"] = "P81 to P90"
+		@willingness_to_pay[9]["name"] = "P91 to P100"
+		@willingness_to_pay[10]["name"] = "more than P100"
+
+		@survey_results.each do |survey|
+			@willingness_to_pay[survey.much_2]["quantity"] += 1
+		end
+
+		
 
 		@page = 'dashboard'
 	end

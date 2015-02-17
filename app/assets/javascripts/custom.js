@@ -223,6 +223,175 @@ function createPlacesGraph(data) {
       // .on('mouseout', tip.hide)
 }
 
+function createWillingnessGraph(data) {
+	$context = $("#svg-willingness");
+
+	var margin = {top:16, right:16, bottom:30, left:32};
+	var height = $context.height() - margin.top - margin.bottom;
+	var width = $context.width() - margin.right - margin.left;
+
+	var $svg = d3.select("#svg-willingness")
+		.attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  var sum = 0;
+  var fixed_willingness = [];
+  var color_scale = ["#BD4932", "#DB9E36", "#FFD34E", "#105B63", "#FFFAD5"];
+
+  for(var i = 0; i < 4; i++) {
+  	fixed_willingness.push({
+  		range:[sum, (sum+data[i].quantity)],
+  		name:data[i].name,
+  		color:color_scale[i]
+  	});
+  	sum += data[i].quantity;
+  }
+
+  var scale = d3.scale.linear()
+  	.domain([0, sum])
+  	.range([0, 2 * Math.PI]);
+
+	var arc = d3.svg.arc()
+  	.innerRadius(40)
+  	.outerRadius(80)
+  	.startAngle(function(d) {
+  		return scale(d.range[0]);
+  	})
+  	.endAngle(function(d) {
+  		return scale(d.range[1]);
+  	});
+
+	$svg.selectAll("path")
+      .data(fixed_willingness)
+    .enter()
+    	.append("path")
+    	.attr("d", arc)
+    	.attr("fill", function(d){ return d.color; })
+      .attr("transform", "translate("+(width/2)+","+(height/2 - 20)+")");
+
+  $svg.selectAll(".pie-legend")
+  		.data(fixed_willingness)
+  	.enter()
+  		.append("text")
+  		.attr("class", "pie-legend")
+  		.text(function(d) {
+  			return d.name;
+  		})
+  		.attr("x", function(d, i) {
+  			return (width/2 - (1*150)) + (i%2)*150 + 55//(width*4/6))
+  		})
+  		.attr("y", function(d, i) {
+  			return height - 16 + 16 * Math.floor(i/2);//height/2 - (2.5*16) + i*16;
+  		} );
+
+  $svg.selectAll(".pie-legend-square")
+  		.data(fixed_willingness)
+  	.enter()
+  		.append("rect")
+  		.attr("class", "pie-legend-square")
+  		.attr("fill", function(d) {
+  			return d.color;
+  		})
+  		.attr("width", 10)
+  		.attr("height", 10)
+  		.attr("x", function(d, i) {
+  			return (width/2 - (1*150)) + (i%2)*150 - 18 + 55//(width*4/6))
+  		})
+  		.attr("y", function(d, i) {
+  			return height - 16 - 8 + 16 * Math.floor(i/2);//height/2 - (2.5*16) + i*16 - 8;
+  		} );
+ //      // .on('mouseover', tip.show)
+      // .on('mouseout', tip.hide)
+}
+
+function createWillingnessToPayGraph(data) {
+	$context = $("#svg-willingness-to-pay");
+
+	var margin = {top:16, right:16, bottom:30, left:32};
+	var height = $context.height() - margin.top - margin.bottom;
+	var width = $context.width() - margin.right - margin.left;
+
+	var $svg = d3.select("#svg-willingness-to-pay")
+		.attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  var sum = 0;
+  var fixed_willingness_to_pay = [];
+  var color_scale = ["#67001f","#b2182b","#d6604d","#f4a582","#fddbc7","#d1e5f0","#92c5de","#4393c3","#2166ac","#053061"];
+
+  //["#9e0142","#d53e4f","#f46d43","#fdae61","#fee08b","#e6f598","#abdda4","#66c2a5","#3288bd","#5e4fa2"];
+  //["#a50026","#d73027","#f46d43","#fdae61","#fee08b","#d9ef8b","#a6d96a","#66bd63","#1a9850","#006837"];
+
+  for(var i = 0; i < 10; i++) {
+  	fixed_willingness_to_pay.push({
+  		range:[sum, (sum+data[i].quantity)],
+  		name:data[i].name,
+  		color:color_scale[i]
+  	});
+  	sum += data[i].quantity;
+  }
+
+  var scale = d3.scale.linear()
+  	.domain([0, sum])
+  	.range([0, 2 * Math.PI]);
+
+	var arc = d3.svg.arc()
+  	.innerRadius(40)
+  	.outerRadius(80)
+  	.startAngle(function(d) {
+  		return scale(d.range[0]);
+  	})
+  	.endAngle(function(d) {
+  		return scale(d.range[1]);
+  	});
+
+	$svg.selectAll("path")
+      .data(fixed_willingness_to_pay)
+    .enter()
+    	.append("path")
+    	.attr("d", arc)
+    	.attr("fill", function(d){ return d.color; })
+      .attr("transform", "translate("+(width/2)+","+(height/2 - 20)+")");
+
+  $svg.selectAll(".pie-legend")
+  		.data(fixed_willingness_to_pay)
+  	.enter()
+  		.append("text")
+  		.attr("class", "pie-legend")
+  		.text(function(d) {
+  			return d.name;
+  		})
+  		.attr("x", function(d, i) {
+  			return (width/2 - (2*100)) + (i%4)*100 + 25//(width*4/6))
+  		})
+  		.attr("y", function(d, i) {
+  			return height - 16 + 16 * Math.floor(i/4);//height/2 - (2.5*16) + i*16;
+  		} );
+
+  $svg.selectAll(".pie-legend-square")
+  		.data(fixed_willingness_to_pay)
+  	.enter()
+  		.append("rect")
+  		.attr("class", "pie-legend-square")
+  		.attr("fill", function(d) {
+  			return d.color;
+  		})
+  		.attr("width", 10)
+  		.attr("height", 10)
+  		.attr("x", function(d, i) {
+  			return (width/2 - (2*100)) + (i%4)*100 - 18 + 25//(width*4/6))
+  		})
+  		.attr("y", function(d, i) {
+  			return height - 16 - 8 + 16 * Math.floor(i/4);//height/2 - (2.5*16) + i*16 - 8;
+  		} );
+ //      // .on('mouseover', tip.show)
+      // .on('mouseout', tip.hide)
+}
+
 function ready() {
 	$(".details").on('click', function(e) {
 		var i = $(this).data("dept");
@@ -269,6 +438,12 @@ function ready() {
 
 	if(places)
 		createPlacesGraph(places);
+
+	if(willingness)
+		createWillingnessGraph(willingness);
+
+	if(willingnessToPay)
+		createWillingnessToPayGraph(willingnessToPay);
 }
 
 $(document).ready(ready)
