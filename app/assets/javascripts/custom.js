@@ -1,5 +1,4 @@
 function createFlavorGraph(data) {
-	
 	$context = $("#svg-flavor");
 
 	var margin = {top:16, right:16, bottom:30, left:32};
@@ -66,6 +65,52 @@ function createFlavorGraph(data) {
       // .on('mouseout', tip.hide)
 }
 
+function createAllowanceGraph(data) {
+	$context = $("#svg-allowance");
+
+	var margin = {top:16, right:16, bottom:30, left:32};
+	var height = $context.height() - margin.top - margin.bottom;
+	var width = $context.width() - margin.right - margin.left;
+
+	var $svg = d3.select("#svg-allowance")
+		.attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  
+  console.log($svg);
+  var myScale = d3.scale.linear()
+  	.domain([0, 100])
+  	.range([0, 2 * Math.PI]);
+
+	// var arc = d3.svg.arc()
+ //  	.innerRadius(50)
+ //  	.outerRadius(100)
+ //  	.startAngle(0 + Math.PI/4*0)
+ //  	.endAngle(2*Math.PI);
+
+	// $svg.append("path")
+ //    .attr("d", arc)
+ //    .attr("stroke", "black")
+ //    .attr("fill", "red");
+ //    .attr("transform", "translate(300,200)");
+
+	$svg.selectAll("path")
+      .data(data)
+    .enter()
+    	.append("path")
+    	.attr("d", function(d, i) {
+    		return d3.svg.arc()
+			  	.innerRadius(50)
+			  	.outerRadius(100)
+			  	.startAngle(0 + Math.PI/4*0)
+			  	.endAngle(2*Math.PI);
+    	})
+      .attr("transform", "translate("+(width/2)+","+(height/2)+")");
+ //      // .on('mouseover', tip.show)
+      // .on('mouseout', tip.hide)
+}
+
 function ready() {
 	$(".details").on('click', function(e) {
 		var i = $(this).data("dept");
@@ -106,6 +151,9 @@ function ready() {
 
 	if(flavors)
 		createFlavorGraph(flavors);
+
+	if(allowances)
+		createAllowanceGraph(allowances);
 }
 
 $(document).ready(ready)
