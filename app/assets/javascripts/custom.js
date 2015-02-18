@@ -260,6 +260,15 @@ function createPlacesGraph(data) {
 
 
 function ready() {
+	$('#departmentFunctionsModal').on('show.bs.modal', function (event) {
+	  var button = $(event.relatedTarget)
+	  var title = button.data('title')
+	  var functions = button.data('functions');
+	  var modal = $(this)
+	  modal.find('.modal-title').text(title+" Department Functions")
+	  modal.find('.modal-body').html(functions)
+	})
+
 	$(".details").on('click', function(e) {
 		var i = $(this).data("dept");
 		var j = $(this).data("index");

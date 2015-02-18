@@ -1,3 +1,6 @@
+
+<%= render "page/department_functions_modal" %>
+
 <div class="col-md-12">
 	<div class="row">
 		<div class="col-md-12">
@@ -104,7 +107,14 @@
 							</div>
 							<div class="dept-desc">
 								<div class="dept-title">
-									<%= departments[i*(departments.length/columns-1)+j]['name'] %> Department
+									<a data-toggle="modal" data-target="#departmentFunctionsModal" 
+									data-title="<%= departments[i*(departments.length/columns-1)+j]['name'] %>" 
+									data-functions="
+									<% departments[i*(departments.length/columns-1)+j]['functions'].each do |s| %>
+										&nbsp;&nbsp;&nbsp;&#10003;&nbsp;&nbsp;<%= s %><br/>
+									<% end %>">
+										<%= departments[i*(departments.length/columns-1)+j]['name'] %> Department
+									</a>
 								</div>
 								<p>
 									<b>Strategic Objective: <%= departments[i*(departments.length/columns-1)+j]['strategic-objective'] %></b>
