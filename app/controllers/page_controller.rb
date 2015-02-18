@@ -9,27 +9,49 @@ class PageController < ApplicationController
 	end
 
 	def viewKeyIndicators
+		loadKPI
 		@page = 'key'
+	end
 
+	def viewDashboard
+		loadGraphData
+		@page = 'dashboard'
+	end
+
+	def viewFinancialAnalysis
+		@page = 'financial'
+	end
+
+	def viewDecisionSupport
+		@page = 'decision'
+	end
+
+	private
+
+	def loadKPI
 		@perspectives = Perspective.all();
 		@kpiList = Array.new(@perspectives.length)
+		@rands = Array.new(@perspectives.length)
 		@departments = Array.new(@perspectives.length)
 		@initiatives = Array.new(@perspectives.length)
 
 		@perspectives.each_with_index do |pers, i|
 			@kpiList[i] = Keypi.where(Perspective_id: pers.id)
+			@rands[i] = Array.new(@kpiList[i].length)
 			@initiatives[i] = Array.new(@kpiList[i].length)
 			@departments[i] = Array.new(@kpiList[i].length)
 
 			@kpiList[i].each_with_index do |kp, j|
 				@initiatives[i][j] = Initiatives.where(Keypi_id: kp.id)
 				@departments[i][j] = Department.find(kp.Department_id)
+				min = [[kp.bad_d.fix, kp.good_d.fix].min - 3, 0].max
+				max = [kp.bad_d.fix, kp.good_d.fix].max + 3  
+				@rands[i][j] = [*min.floor..max.floor].sample
 			end
 		end
-
 	end
 
-	def viewDashboard
+	def loadGraphData
 		@survey_results = Surveyresult.all()
 		@flavors = Array.new(3);
 
@@ -144,17 +166,19 @@ class PageController < ApplicationController
 			@willingness_to_pay[survey.much_2]["quantity"] += 1
 		end
 
-		
+		@cleanliness = Array.new(4)
+		@cleanliness.each_with_index do |d, i|
+			@cleanliness[i] = {"name" => "", "quantity" => 0}
+		end
 
-		@page = 'dashboard'
-	end
+		@cleanliness[0]["name"] = "Not that important"
+		@cleanliness[1]["name"] = "A little important"
+		@cleanliness[2]["name"] = "Quite important"
+		@cleanliness[3]["name"] = "Extremely important"
 
-	def viewFinancialAnalysis
-		@page = 'financial'
-	end
-
-	def viewDecisionSupport
-		@page = 'decision'
+		@survey_results.each do |survey|
+			@cleanliness[survey.qual_3]["quantity"] += 1
+		end
 	end
 
 end

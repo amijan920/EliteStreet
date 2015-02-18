@@ -1,6 +1,7 @@
 <div class="col-md-12">
 	<div class="row content-box">
 		<div class="col-md-offset-1 col-md-10">
+
 			<div class="sub-content sub-content-top" align="center">
 				<div class="row">
 					<div class="col-md-12">
@@ -11,102 +12,58 @@
 				</div>
 			</div>
 
-			<div class="sub-content" align="center" >
-					<div class="row">
-						<div class="col-md-6" >
-							<div class="graph-container">
-								<div class="svg-container">
-									<svg id="svg-flavor" class="survey-svg">
-									</svg>
-								</div>
-								<div class="graph-desc">
-									<div class="graph-title">
-										Favorite topping
-									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6" >
-							<div class="graph-container">
-								<div class="svg-container">
-									<svg id="svg-allowance" class="survey-svg">
-									</svg>
-								</div>
-								<div class="graph-desc">
-									<div class="graph-title">
-										Participants' allowance bracket
-									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+			<%
+				graph_titles = Array.new(6)
+				graph_id = Array.new(6)
+				graph_pars = Array.new(6)
 
+				graph_titles[0] = "Favorite topping"
+				graph_titles[1] = "Participants' allowance bracket"
+				graph_titles[2] = "Places where street-food is bought"
+				graph_titles[3] = "Willingness to buy product"
+				graph_titles[4] = "Willingness to pay"
+				graph_titles[5] = "Importance of Cleanliness"
+
+				graph_id[0] = "flavor"
+				graph_id[1] = "allowance"
+				graph_id[2] = "places"
+				graph_id[3] = "willingness"
+				graph_id[4] = "willingness-to-pay"
+				graph_id[5] = "cleanliness"
+
+				graph_pars[0] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+				graph_pars[1] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+				graph_pars[2] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+				graph_pars[3] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+				graph_pars[4] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+				graph_pars[5] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+			%>
+
+			<% for i in 0..2 %>
 				<div class="sub-content" align="center" >
 					<div class="row">
-						<div class="col-md-6" >
-							<div class="graph-container">
-								<div class="svg-container">
-									<svg id="svg-places" class="survey-svg">
-									</svg>
-								</div>
-								<div class="graph-desc">
-									<div class="graph-title">
-										Places where street-food is bought
+						<% for j in 0..1 %>
+							<div class="col-md-6" >
+								<div class="graph-container">
+									<div class="svg-container">
+										<svg id="svg-<%=graph_id[i*2+j]%>" class="survey-svg">
+										</svg>
 									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+									<div class="graph-desc">
+										<div class="graph-title">
+											<%= graph_titles[i*2+j]%>
+										</div>
+										<p>
+											<%= graph_pars[i*2+j]%>
+										</p>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-6" >
-							<div class="graph-container">
-								<div class="svg-container">
-									<svg id="svg-willingness" class="survey-svg">
-									</svg>
-								</div>
-								<div class="graph-desc">
-									<div class="graph-title">
-										Willingness to buy product
-									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-								</div>
-							</div>
-						</div>
+						<% end %>
 					</div>
 				</div>
+			<% end %>
 
-				<div class="sub-content" align="center" >
-					<div class="row">
-						<div class="col-md-6" >
-							<div class="graph-container">
-								<div class="svg-container">
-									<svg id="svg-willingness-to-pay" class="survey-svg">
-									</svg>
-								</div>
-								<div class="graph-desc">
-									<div class="graph-title">
-										Willingness to pay
-									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6" >
-							<div class="graph-container">
-								<div class="svg-container">
-								</div>
-								<div class="graph-desc">
-									<div class="graph-title">
-										Frequency of buying street-food
-									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 		</div>
 	</div>
 </div>
@@ -117,5 +74,5 @@
 	var places = <%= raw @places.to_json%>
 	var willingness = <%= raw @willingness.to_json%>
 	var willingnessToPay = <%= raw @willingness_to_pay.to_json%>
-	console.log(places);
+	var cleanliness = <%= raw @cleanliness.to_json%>
 </script>
