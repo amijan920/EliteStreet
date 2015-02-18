@@ -1,0 +1,33 @@
+.dept-container {
+	border:solid 1px #CCCCCC;
+	min-height:400px;
+}
+
+.dept-container .dept-logo-container {
+	height:280px;
+	/*background: #CCCCCC;*/
+}
+
+.dept-logo-container {
+	padding-top: 25px;
+}
+
+.dept-container .dept-desc {
+	border-top:solid 1px #CCCCCC;
+	border-bottom:solid 1px #CCCCCC;
+	background: #F0F0F0;
+	min-height:140px;
+	padding:8px;
+}
+
+.dept-container .dept-desc p {
+	font-size: .9em;
+	text-align: justify;
+}
+
+.dept-container .dept-title {
+	font-family: 'Cabin', sans-serif;
+	font-size: 1.4em;
+	color:#105b63;
+	text-align: left;
+}
