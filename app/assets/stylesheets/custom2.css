@@ -1,3 +1,6 @@
+
+/* Strategic Objectives */
+
 .dept-container {
 	border:solid 1px #CCCCCC;
 	min-height:400px;
@@ -30,4 +33,54 @@
 	font-size: 1.4em;
 	color:#105b63;
 	text-align: left;
+}
+
+/* Strategies */
+
+.strat {
+	border-bottom:1px solid #E5E5E5;
+	/*margin-top:24px;*/
+}
+
+.strat table {/*
+	margin-bottom: 0px;*/
+}
+
+.strat-heading {
+	font-size:1.2em;
+	padding:8px;
+	background:#105b63;
+	color:#FFFFFF;
+	text-align: left;
+}
+
+.strat-heading .small{
+	padding:2px;
+	font-size:.8em;
+	color:rgba(255, 255, 255, .5);
+	float:right;
+}
+
+.strat-table td{
+	vertical-align: middle !important;
+}
+
+.strat-table .strat-entry:hover {
+	background: #F5F5F5;
+	cursor: pointer;
+}
+
+.strat-table .strat-entry.active {
+	background: #E5E5E5;
+	cursor: pointer;
+}
+
+.strat-subtitle {
+	padding:4px;
+	background: #4a888e;
+	color:#FFFFFF;
+}
+
+.strat-details {
+
 }
