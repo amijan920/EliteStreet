@@ -84,3 +84,89 @@
 .strat-details {
 
 }
+
+/* Financial Analysis */
+
+.cost {
+	border-bottom:1px solid #E5E5E5;
+	/*margin-top:24px;*/
+}
+
+.cost table {/*
+	margin-bottom: 0px;*/
+}
+
+.cost-heading {
+	font-size:1.2em;
+	padding:8px;
+	background:#105b63;
+	color:#FFFFFF;
+	text-align: left;
+}
+
+.cost-heading .small{
+	padding:2px;
+	font-size:.8em;
+	color:rgba(255, 255, 255, .5);
+	float:right;
+}
+
+.cost-table td, th{
+	vertical-align: middle !important;
+	text-align: right;
+}
+
+.cost-table td:first-child, th:first-child{
+	text-align: left;
+}
+
+
+.cost-table .cost-entry:hover {
+	background: #F5F5F5;
+	cursor: pointer;
+}
+
+.cost-table .cost-entry.active {
+	background: #E5E5E5;
+	cursor: pointer;
+}
+
+.cost-container {
+	border:solid 1px #CCCCCC;
+	min-height:300px;
+}
+
+.cost-container .cost-svg-container {
+	height:280px;
+	/*background: #CCCCCC;*/
+}
+
+.cost-svg-container {
+	padding-top: 25px;
+}
+
+.cost-container .cost-desc {
+	border-top:solid 1px #CCCCCC;
+	border-bottom:solid 1px #CCCCCC;
+	background: #F0F0F0;
+	min-height:100px;
+	padding:8px;
+}
+
+.cost-container .cost-desc p {
+	font-size: .9em;
+	text-align: justify;
+}
+
+.cost-container .cost-title {
+	font-family: 'Cabin', sans-serif;
+	font-size: 1.4em;
+	color:#105b63;
+	text-align: left;
+}
+
+.cost-note {
+	padding:4px;
+	background: #4a888e;
+	color:#FFFFFF;
+}
