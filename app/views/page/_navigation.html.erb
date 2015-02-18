@@ -30,6 +30,12 @@
         	<li><a href="strategies">Strategies</a></li>
         <% end %>
 
+        <% if @page == 'strategic-objectives' %>
+          <li><a href="#" class="active">Strategic Objectives</a></li>
+        <% else %>
+          <li><a href="strategic-objectives">Strategic Objectives</a></li>
+        <% end %>
+
         <% if @page == 'key' %>
         	<li><a href="#" class="active">Key Indicators</a></li>
         <% else %>

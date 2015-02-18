@@ -1,0 +1,132 @@
+
+<%= render "page/department_functions_modal" %>
+
+<div class="col-md-12">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="jumbotron full-body" align="center">
+				<div class="img-logo">
+					<img src="assets/logo.png" class="img-responsive"></img>
+				</div>
+				<h1>Elite Street</h1>
+				<h2>Strategic Objective: Quality Street-type Food</h2>
+				
+				<h4><br/><br/><br/><br/>Six departments, each with a different focus, come together to make food as elite as can be!</h4>
+			</div>
+		</div>
+	</div>
+</div>
+
+<% columns = 2 %>
+<% departments = [
+	{ 
+		'name' => 'Marketing & Sales',
+		'mission' => 'To improve company sales through the use of different marketing techniques and to gather and analyze data from sales and surveys to help improve products and/or business strategies.',
+		'functions' => [
+			'Bring in New Customers',
+			'Maintain Customer Loyalty/Relationships',
+			'Create Promotional Materials and Advertisements',
+			'Establish Product Brand',
+			'Gather Competitive Intelligence',
+			'Gather Customer Feedback',
+			'Meet Revenue Goals'
+		],
+		'strategic-objective' => 'Strong Company image and company-customer relationship'
+	},
+	{ 
+		'name' => 'Product Development',
+		'mission' => 'To keep the company moving forward by enthusiastically developing new products that would cater to the market’s taste and improving upon existing products to help keep up with increasing market standards.',
+		'functions' => [
+			'Design and Create New Products',
+			'Develop and Improve Existing Products (including packaging)'
+		],
+		'strategic-objective' => 'Product development and innovation'
+	},
+	{ 
+		'name' => 'Production & Delivery',
+		'mission' => 'To continually produce quality goods at an efficient rate and distribute it to sellers in a timely manner.',
+		'functions' => [
+			'Ensure quality and efficient production and distribution of the product'
+		],
+		'strategic-objective' => 'Production and Distribution Leadership'
+	},
+	{ 
+		'name' => 'Externals & Purchasing',
+		'mission' => 'The externals department manages relationships with key partners, such as raw material suppliers. Their mission is to actively seek new partnership opportunities and at the same time, purchase all needed raw materials with the best possible prices and quality.',
+		'functions' => [
+			'Establish partnership and deals with companies of interest',
+			'Buy necessary raw materials'
+		],
+		'strategic-objective' => 'Beneficial Partnerships'
+	},
+	{ 
+		'name' => 'Finance',
+		'mission' => 'To manage company finances accurately and efficiently whether it be sales, loans, debts or any other financial matters.',
+		'functions' => [
+			'Prepare, create and manage financial accounts',
+			'Keep track of company expenditures and income',
+			'Handle taxes or any other government regulations with regard to finances',
+			'Pay and manage employee salaries and creditors'
+		],
+		'strategic-objective' => 'Streamlined and clear financial systems'
+	},
+	{ 
+		'name' => 'Human Resources',
+		'mission' => 'To gather like-minded, loyal individuals, polish their skills in their areas of focus and instill in them the value of diligence.',
+		'functions' => [
+			'Recruitment',
+			'Training',
+			'Dismissal',
+			'Arrange employee benefits'
+		],
+		'strategic-objective' => 'Employee Management'
+	}
+] %>
+
+<div class="col-md-12">
+	<div class="row content-box">
+		<div class="col-md-offset-1 col-md-10">
+			<div class="sub-content sub-content-top" align="center">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="page-heading" align="center">
+							Department Mission and Strategic Objective
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<% for i in 0..(departments.length/columns)-1 %>
+			<div class="sub-content" align="center" >
+				<div class="row">
+					<% for j in 0..(columns-1) %>
+					<div class="col-md-6" >
+						<div class="dept-container">
+							<div class="dept-logo-container">
+								<img src="assets/logo.png" class="img-responsive"></img>
+							</div>
+							<div class="dept-desc">
+								<div class="dept-title">
+									<a data-toggle="modal" data-target="#departmentFunctionsModal" 
+									data-title="<%= departments[i*(departments.length/columns-1)+j]['name'] %>" 
+									data-functions="
+									<% departments[i*(departments.length/columns-1)+j]['functions'].each do |s| %>
+										&nbsp;&nbsp;&nbsp;&#10003;&nbsp;&nbsp;<%= s %><br/>
+									<% end %>">
+										<%= departments[i*(departments.length/columns-1)+j]['name'] %> Department
+									</a>
+								</div>
+								<p>
+									<b>Strategic Objective: <%= departments[i*(departments.length/columns-1)+j]['strategic-objective'] %></b>
+									<br/>Mission: <%= departments[i*(departments.length/columns-1)+j]['mission'] %>
+								</p>
+							</div>
+						</div>
+					</div>
+					<% end %>
+				</div>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>

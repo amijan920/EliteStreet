@@ -8,6 +8,10 @@ class PageController < ApplicationController
 		@page = 'strategies'
 	end
 
+	def viewStrategicObjectives
+		@page = 'strategic-objectives'
+	end
+
 	def viewKeyIndicators
 		loadKPI
 		@page = 'key'
