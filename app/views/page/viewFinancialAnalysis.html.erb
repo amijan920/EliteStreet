@@ -1,13 +1,197 @@
 <div class="col-md-12">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="jumbotron full-body" align="center">
-				<div class="img-logo">
-					<img src="assets/logo.png" class="img-responsive"></img>
+	<div class="row content-box">
+		<div class="col-md-offset-1 col-md-10">
+			<div class="sub-content sub-content-top" align="center">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="page-heading" align="center">
+							Financial Analysis
+						</div>
+					</div>
 				</div>
-				<h1>Elite Street</h1>
-				<h2>Ang elitistang fishball. Keri mo?</h2>
 			</div>
+
+			<!-- Analysis -->
+			<div class="sub-content" align="center" >
+				<div class="row">
+					<div class="col-md-12">
+						<div class="cost">
+							<div class="cost-heading" align="center">
+								Results
+							</div>
+							<div class="cost-details">
+								<div class="cost-note">
+									There are 30 store days in a month, 10 store hours in a day, and 2 stalls. Time to receivable is 1 month.
+								</div>
+							</div>
+							<table class="table cost-table">
+								<% for i in 0..@values.length-1 %>
+								<tr class="cost-entry">
+									<% for j in 0..@values[i].length-1 %>
+									<td><%= @values[i][j] %></td>
+									<% end %>
+								</tr>
+								<% end %>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- Fixed Cost -->
+			<div class="sub-content" align="center" >
+				<div class="row">
+					<div class="col-md-12">
+						<div class="cost">
+							<div class="cost-heading" align="center">
+								Fixed Cost
+							</div>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-6" >
+						<div class="cost-container">
+							<div class="cost-svg-container">
+								
+							</div>
+							<!--div class="cost-desc">
+								<div class="cost-title">
+								</div>
+								<p>
+									
+								</p>
+							</div-->
+						</div>
+					</div>
+					<div class="col-md-6" >
+						<table class="table cost-table">
+							<tr>
+								<% for i in 0..@fcost[0].length-1 %>
+								<th class="col-md-3"><%= @fcost[0][i] %></th>
+								<% end %>
+							</tr>
+							<% for i in 1..@fcost.length-2 %>
+							<tr class="cost-entry">
+								<% for j in 0..@fcost[i].length-1 %>
+								<td><%= @fcost[i][j] %></td>
+								<% end %>	
+							</tr>
+							<% end %>
+							<tr>
+								<% for i in 0..@fcost[@fcost.length-1].length-1 %>
+								<th class="col-md-3"><%= @fcost[@fcost.length-1][i] %></th>
+								<% end %>
+							</tr>
+						</table>
+					</div>	
+				</div>
+			</div>
+			
+			<!-- Fixed Cost -->
+			<div class="sub-content" align="center" >
+				<div class="row">
+					<div class="col-md-12">
+						<div class="cost">
+							<div class="cost-heading" align="center">
+								Variable Cost
+							</div>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-6" >
+						<div class="cost-container">
+							<div class="cost-svg-container">
+								
+							</div>
+							<!--div class="cost-desc">
+								<div class="cost-title">
+								</div>
+								<p>
+									
+								</p>
+							</div-->
+						</div>
+					</div>
+					<div class="col-md-6" >
+						<table class="table cost-table">
+							<tr>
+								<% for i in 0..@vcost[0].length-1 %>
+								<th class="col-md-3"><%= @vcost[0][i] %></th>
+								<% end %>
+							</tr>
+							<% for i in 1..@vcost.length-2 %>
+							<tr class="cost-entry">
+								<% for j in 0..@vcost[i].length-1 %>
+								<td><%= @vcost[i][j] %></td>
+								<% end %>	
+							</tr>
+							<% end %>
+							<tr>
+								<% for i in 0..@vcost[@vcost.length-1].length-1 %>
+								<th class="col-md-3"><%= @vcost[@vcost.length-1][i] %></th>
+								<% end %>
+							</tr>
+						</table>
+					</div>	
+				</div>
+			</div>
+
+			<!-- Capital Cost -->
+			<div class="sub-content" align="center" >
+				<div class="row">
+					<div class="col-md-12">
+						<div class="cost">
+							<div class="cost-heading" align="center">
+								Capital Cost
+							</div>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-6" >
+						<div class="cost-container">
+							<div class="cost-svg-container">
+								
+							</div>
+							<!--div class="cost-desc">
+								<div class="cost-title">
+								</div>
+								<p>
+									
+								</p>
+							</div-->
+						</div>
+					</div>
+					<div class="col-md-6" >
+						<table class="table cost-table">
+							<tr>
+								<% for i in 0..@ccost[0].length-1 %>
+								<th class="col-md-3"><%= @ccost[0][i] %></th>
+								<% end %>
+							</tr>
+							<% for i in 1..@ccost.length-2 %>
+							<tr class="cost-entry">
+								<% for j in 0..@ccost[i].length-1 %>
+								<td><%= @ccost[i][j] %></td>
+								<% end %>	
+							</tr>
+							<% end %>
+							<tr>
+								<% for i in 0..@ccost[@ccost.length-1].length-1 %>
+								<th class="col-md-3"><%= @ccost[@ccost.length-1][i] %></th>
+								<% end %>
+							</tr>
+						</table>
+					</div>	
+				</div>
+			</div>
+
 		</div>
 	</div>
 </div>

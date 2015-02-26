@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'dashboard' => 'page#viewDashboard'
   get 'financial' => 'page#viewFinancialAnalysis'
   get 'decision' => 'page#viewDecisionSupport'
+  get 'strategic-objectives' => 'page#viewStrategicObjectives'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,3 +1,5 @@
+require 'csv'
+
 class PageController < ApplicationController
 
 	def index
@@ -6,6 +8,10 @@ class PageController < ApplicationController
 
 	def viewStrategies
 		@page = 'strategies'
+	end
+
+	def viewStrategicObjectives
+		@page = 'strategic-objectives'
 	end
 
 	def viewKeyIndicators
@@ -19,6 +25,10 @@ class PageController < ApplicationController
 	end
 
 	def viewFinancialAnalysis
+		@ccost = CSV.read("app/assets/data/BEP_CapitalCost.csv")
+		@fcost = CSV.read("app/assets/data/BEP_FixedCost.csv")
+		@vcost = CSV.read("app/assets/data/BEP_VariableCost.csv")
+		@values = CSV.read("app/assets/data/BEP_Values.csv")
 		@page = 'financial'
 	end
 
