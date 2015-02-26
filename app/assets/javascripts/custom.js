@@ -80,7 +80,6 @@ function createPieChart(selector, data, n, colorScale, legendWidth, legendXOffse
 }
 
 function createBarChart() {
-	
 }
 
 function createAllowanceGraph(data) {
