@@ -1,0 +1,56 @@
+<div class="col-md-12">
+	<div class="row content-box">
+		<div class="col-md-offset-1 col-md-10" >
+			<div class="sub-content sub-content-top" align="center">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="page-heading" align="center">
+							Pivot Tables
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<% @pivots.each_with_index do | pivot, k | %>
+				<% if pivot == nil 
+						next
+					end %>
+				<div class="sub-content" align="center"  id="pivot-<%=k%>">
+					<div class="row">
+						<div class="col-md-12" >
+							<div class="dept-kpi">
+								<div class="pivot-heading" align="center">
+									<%= @names[k] %>
+								</div>
+								<table class="table table-bordered table-condensed table-hover pivot-table">
+									<% for i in 0..pivot.length-1 %>
+										<tr>
+											<% for j in 0..pivot[i].length-1 %>
+												<% if i == 0 && j == 0 %>
+													<th class="two-rower row-col" align="center" rowspan="2"><%= pivot[i][j] %></th>
+												<% elsif i == 0 && j == 1%>
+													<th class="row-con" colspan="<%= pivot[1].length%>" align="center" ><%= pivot[i][j] %></th>
+												<% elsif i == 0 && j == 2 %>
+													<th class="two-rower row-col" align="center" rowspan="2"><%= pivot[i][j] %></th>
+												<% elsif i == 1 %>
+													<th align="center" class="row-con"><%= pivot[i][j] %></th>
+												<% elsif i == pivot.length-1 %>
+													<th class="row-con"><%= pivot[i][j] %></th>
+												<% elsif i > 1 && j > 0 %>
+													<td align="center"><%= pivot[i][j] %></td>
+												<% else %>
+													<td><%= pivot[i][j] %></td>
+												<% end %>
+											<%end%>
+										</tr>
+									<% end %>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			<% end %>
+
+		</div>
+	</div>
+</div>

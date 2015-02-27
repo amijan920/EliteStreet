@@ -24,6 +24,24 @@ class PageController < ApplicationController
 		@page = 'dashboard'
 	end
 
+	def viewPivotTables
+		@pivots = Array.new(6)
+		@pivots[0] = CSV.read("app/assets/data/Pivot_F.csv")
+		@pivots[1] = CSV.read("app/assets/data/Pivot_G.csv")
+		@pivots[2] = CSV.read("app/assets/data/Pivot_H.csv")
+		@pivots[3] = CSV.read("app/assets/data/Pivot_I.csv")
+		@pivots[4] = CSV.read("app/assets/data/Pivot_J.csv")
+
+		@names = Array.new(6)
+		@names[0] = "Amount Willing to Pay and Allowance"
+		@names[1] = "Amount Willing to Pay and Willingness to Purchase"
+		@names[2] = "Affordability and Taste"
+		@names[3] = "Place of Purchase and Amount Willing to Pay"
+		@names[4] = "Place of Purchase and Amount Usually Paid"
+
+		@page = 'pivot'
+	end
+
 	def viewFinancialAnalysis
 		@ccost = CSV.read("app/assets/data/BEP_CapitalCost.csv")
 		@fcost = CSV.read("app/assets/data/BEP_FixedCost.csv")

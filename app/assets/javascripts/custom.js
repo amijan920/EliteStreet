@@ -331,6 +331,21 @@ function ready() {
 		$(this).toggleClass("active", true);
 	});
 
+	// $(".perspective-menu").on('click', function(e){
+	// 	var index = $(this).data("index");
+	// 	$(".kpi-table-container").each(function(e) {
+	// 		console.log(this.id);
+	// 		if(this.id != "table-"+ index) {
+	// 			console.log(this.id + "- up");
+	// 			$(this).slideUp();
+	// 		}
+	// 	})
+	// 	console.log("#table-"+index);
+	// 	$("#table-"+index).slideDown()
+	// 		.toggleClass("hide", false);
+	// 	console.log("wew");
+	// });
+
 	if(flavors)
 		createFlavorGraph(flavors);
 

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'strategies' => 'page#viewStrategies'
   get 'keys' => 'page#viewKeyIndicators'
   get 'dashboard' => 'page#viewDashboard'
+  get 'pivot' => 'page#viewPivotTables'
   get 'financial' => 'page#viewFinancialAnalysis'
   get 'decision' => 'page#viewDecisionSupport'
   get 'strategic-objectives' => 'page#viewStrategicObjectives'

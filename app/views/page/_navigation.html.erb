@@ -48,6 +48,12 @@
         	<li><a href="dashboard">Dashboard</a></li>
         <% end %>
 
+        <% if @page == 'pivot' %>
+          <li><a href="#" class="active">Pivot Table</a></li>
+        <% else %>
+          <li><a href="pivot">Pivot Table</a></li>
+        <% end %>
+
         <% if @page == 'financial' %>
         	<li><a href="#" class="active">Financial Analysis</a></li>
         <% else %>
