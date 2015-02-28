@@ -24,35 +24,55 @@
         	<li><a href="/">About Us</a></li>
         <% end %>
 
-        <% if @page == 'strategies' %>
-        	<li><a href="#" class="active">Strategies</a></li>
-        <% else %>
-        	<li><a href="strategies">Strategies</a></li>
-        <% end %>
+        <li class="dropdown">
+          <% if @page == 'strategies' || @page == 'strategic-objectives' %>
+            <a href="#" class="active dropdown-toggle" data-toggle="dropdown" aria-expanded="false" role="button">Strategies <span class="caret"> </span></a>
+          <% else %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" role="button">Strategies <span class="caret"> </span></a>
+          <% end %>
+          <ul class="dropdown-menu" role="menu">
+            <% if @page == 'strategies' %>
+              <li><a href="#" class="active">Strategies</a></li>
+            <% else %>
+              <li><a href="strategies">Strategies</a></li>
+            <% end %>
 
-        <% if @page == 'strategic-objectives' %>
-          <li><a href="#" class="active">Strategic Objectives</a></li>
-        <% else %>
-          <li><a href="strategic-objectives">Strategic Objectives</a></li>
-        <% end %>
+            <% if @page == 'strategic-objectives' %>
+              <li><a href="#" class="active">Strategic Objectives</a></li>
+            <% else %>
+              <li><a href="strategic-objectives">Strategic Objectives</a></li>
+            <% end %>
+          </ul>
+        </li>
 
         <% if @page == 'key' %>
-        	<li><a href="#" class="active">Key Indicators</a></li>
+        	<li><a href="#" class="active">KPI</a></li>
         <% else %>
-        	<li><a href="keys">Key Indicators</a></li>
+        	<li><a href="keys">KPI</a></li>
         <% end %>
 
-        <% if @page == 'dashboard' %>
-        	<li><a href="#" class="active">Dashboard</a></li>
-        <% else %>
-        	<li><a href="dashboard">Dashboard</a></li>
-        <% end %>
+        <li class="dropdown">
+          <% if @page == 'dashboard' || @page == 'pivot' %>
+            <a href="#" class="active dropdown-toggle" data-toggle="dropdown" aria-expanded="false" role="button">OLAP <span class="caret"> </span></a>
+          <% else %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" role="button">OLAP <span class="caret"> </span></a>
+          <% end %>
+          <ul class="dropdown-menu" role="menu">
+            <% if @page == 'dashboard' %>
+              <li><a href="#" class="active">Market Analysis</a></li>
+            <% else %>
+              <li><a href="dashboard">Market Analysis</a></li>
+            <% end %>
 
-        <% if @page == 'pivot' %>
-          <li><a href="#" class="active">Pivot Table</a></li>
-        <% else %>
-          <li><a href="pivot">Pivot Table</a></li>
-        <% end %>
+            <% if @page == 'pivot' %>
+              <li><a href="#" class="active">Pivot Table</a></li>
+            <% else %>
+              <li><a href="pivot">Pivot Table</a></li>
+            <% end %>
+          </ul>
+        </li>
+
+       
 
         <% if @page == 'financial' %>
         	<li><a href="#" class="active">Financial Analysis</a></li>
@@ -61,9 +81,9 @@
         <% end %>
 
         <% if @page == 'decision' %>
-        	<li><a href="#" class="active">Decision Support</a></li>
+        	<li><a href="#" class="active">Downloads</a></li>
         <% else %>
-        	<li><a href="decision">Decision Support</a></li>
+        	<li><a href="decision">Downloads</a></li>
         <% end %>
         
     </div>

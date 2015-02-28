@@ -176,7 +176,7 @@ function createFlavorGraph(data) {
     	.append("rect")
       .attr("class", "bar")
       .attr("x", function(d, i) { return x(d.name); })
-      .attr("width", 135)
+      .attr("width", (width-margin.right - margin.left) / 3)
       .attr("y", function(d, i) { return y(d.quantity); })
       .attr("height", function(d) { return height - y(d.quantity); })
       .attr("fill", function(d, i){return color_scale[i]});
@@ -249,7 +249,7 @@ function createPlacesGraph(data) {
     	.append("rect")
       .attr("class", "bar")
       .attr("x", function(d, i) { return x(d.name) + 5; })
-      .attr("width", 40)
+      .attr("width", (width-margin.right - margin.left) / 11)
       .attr("y", function(d, i) { return y(d.quantity); })
       .attr("height", function(d) { return height - y(d.quantity); })
       .attr("fill", function(d, i){return color_scale[i+1]});

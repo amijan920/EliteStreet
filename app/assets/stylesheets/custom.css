@@ -1,7 +1,7 @@
 body {
 	font-family: 'Cabin', sans-serif;
 	background: #FFFFFF;
-	background: url(bg4.gif);
+	/*background: url(bg4.gif);*/
 }
 
 .navbar {
@@ -332,7 +332,7 @@ body {
 	border-top:solid 1px #CCCCCC;
 	border-bottom:solid 1px #CCCCCC;
 	background: #F0F0F0;
-	height:200px;
+	height:218px;
 	padding:8px;
 }
 
@@ -455,6 +455,11 @@ body {
 .row-con {
 	background: #BD4932;
 	color:white;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+	color: #FFFFFF;
+	background-color: #e5aa53;
 }
 
 /*BD4932, DB9E36, FFD34E, FFFAD5, 105B63*/
