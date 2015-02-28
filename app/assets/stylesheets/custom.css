@@ -1,7 +1,7 @@
 body {
 	font-family: 'Cabin', sans-serif;
 	background: #FFFFFF;
-	/*background: url(bg4.gif);*/
+	background: url(bg6.png);
 }
 
 .navbar {
@@ -454,6 +454,17 @@ body {
 
 .row-con {
 	background: #BD4932;
+	color:white;
+}
+
+.res {
+	background:#DB9E36;
+	color:white;
+}
+
+.res-val {
+	background: #DB9E36;
+	font-weight: 700;
 	color:white;
 }
 

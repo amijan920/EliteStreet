@@ -25,22 +25,28 @@
         <% end %>
 
         <li class="dropdown">
-          <% if @page == 'strategies' || @page == 'strategic-objectives' %>
+          <% if @page == 'strategies' || @page == 'strategic-objectives' || @page == 'strategic-map' %>
             <a href="#" class="active dropdown-toggle" data-toggle="dropdown" aria-expanded="false" role="button">Strategies <span class="caret"> </span></a>
           <% else %>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" role="button">Strategies <span class="caret"> </span></a>
           <% end %>
           <ul class="dropdown-menu" role="menu">
+            <% if @page == 'strategic-objectives' %>
+              <li><a href="#" class="active">Strategic Objectives</a></li>
+            <% else %>
+              <li><a href="strategic-objectives">Strategic Objectives</a></li>
+            <% end %>
+
             <% if @page == 'strategies' %>
               <li><a href="#" class="active">Strategies</a></li>
             <% else %>
               <li><a href="strategies">Strategies</a></li>
             <% end %>
 
-            <% if @page == 'strategic-objectives' %>
-              <li><a href="#" class="active">Strategic Objectives</a></li>
+            <% if @page == 'strategic-map' %>
+              <li><a href="#" class="active">Strategic Map</a></li>
             <% else %>
-              <li><a href="strategic-objectives">Strategic Objectives</a></li>
+              <li><a href="strategic-map">Strategic Map</a></li>
             <% end %>
           </ul>
         </li>

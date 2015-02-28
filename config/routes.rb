@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'financial' => 'page#viewFinancialAnalysis'
   get 'decision' => 'page#viewDecisionSupport'
   get 'strategic-objectives' => 'page#viewStrategicObjectives'
+  get 'strategic-map' => 'page#viewStrategicMap'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

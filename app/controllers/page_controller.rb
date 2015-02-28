@@ -39,6 +39,29 @@ class PageController < ApplicationController
 		@names[3] = "Place of Purchase and Amount Willing to Pay"
 		@names[4] = "Place of Purchase and Amount Usually Paid"
 
+		@chi_square = Array.new(6)
+		@freedom = Array.new(6)
+		@probability = Array.new(6)
+
+		@chi_square[0] = 11.50
+		@chi_square[1] = 18.04
+		@chi_square[2] = 7.67
+		@chi_square[3] = 32.16
+		@chi_square[4] = 24.904
+
+		@freedom[0] = 40.00
+		@freedom[1] = 30.000
+		@freedom[2] = 9.000
+		@freedom[3] = 70.000
+		@freedom[4] = 70.000
+
+		@probability[0] = 0.999997187
+		@probability[1] = 0.957876528
+		@probability[2] = 0.567804173
+		@probability[3] = 0.999970288
+		@probability[4] = 0.999999876
+
+
 		@page = 'pivot'
 	end
 
@@ -48,6 +71,10 @@ class PageController < ApplicationController
 		@vcost = CSV.read("app/assets/data/BEP_VariableCost.csv")
 		@values = CSV.read("app/assets/data/BEP_Values.csv")
 		@page = 'financial'
+	end
+
+	def viewStrategicMap
+		@page = 'strategic-map'
 	end
 
 	def viewDecisionSupport
