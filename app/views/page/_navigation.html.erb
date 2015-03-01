@@ -58,7 +58,7 @@
         <% end %>
 
         <li class="dropdown">
-          <% if @page == 'dashboard' || @page == 'pivot' %>
+          <% if @page == 'dashboard' || @page == 'pivot' || @page == 'market-basket' %>
             <a href="#" class="active dropdown-toggle" data-toggle="dropdown" aria-expanded="false" role="button">OLAP <span class="caret"> </span></a>
           <% else %>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" role="button">OLAP <span class="caret"> </span></a>
@@ -71,9 +71,15 @@
             <% end %>
 
             <% if @page == 'pivot' %>
-              <li><a href="#" class="active">Pivot Table</a></li>
+              <li><a href="#" class="active">Pivot Tables</a></li>
             <% else %>
-              <li><a href="pivot">Pivot Table</a></li>
+              <li><a href="pivot">Pivot Tables</a></li>
+            <% end %>
+
+            <% if @page == 'dashboard' %>
+              <li><a href="#" class="active">Market Basket Analysis</a></li>
+            <% else %>
+              <li><a href="market-basket">Market Basket Analysis</a></li>
             <% end %>
           </ul>
         </li>

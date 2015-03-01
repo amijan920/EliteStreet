@@ -346,6 +346,9 @@ function ready() {
 	// 	console.log("wew");
 	// });
 
+	
+	$('[data-toggle="tooltip"]').tooltip();
+
 	if(flavors)
 		createFlavorGraph(flavors);
 

@@ -111,7 +111,7 @@
 	float:right;
 }
 
-.cost-table td, th{
+.cost-table td, .cost-table th{
 	vertical-align: middle !important;
 	text-align: right;
 }
