@@ -55,7 +55,7 @@
 					<div class="col-md-6" >
 						<div class="cost-container">
 							<div class="cost-svg-container">
-								
+								<svg id="svg-fixed-cost" class="cost-svg"></svg>
 							</div>
 							<!--div class="cost-desc">
 								<div class="cost-title">
@@ -90,7 +90,7 @@
 				</div>
 			</div>
 			
-			<!-- Fixed Cost -->
+			<!-- Variable Cost -->
 			<div class="sub-content" align="center" >
 				<div class="row">
 					<div class="col-md-12">
@@ -106,7 +106,7 @@
 					<div class="col-md-6" >
 						<div class="cost-container">
 							<div class="cost-svg-container">
-								
+								<svg id="svg-variable-cost" class="cost-svg"></svg>		
 							</div>
 							<!--div class="cost-desc">
 								<div class="cost-title">
@@ -156,8 +156,8 @@
 				<div class="row">
 					<div class="col-md-6" >
 						<div class="cost-container">
-							<div class="cost-svg-container">
-								
+							<div class="cost-svg-container ccost-svg-container">
+								<svg id="svg-capital-cost" class="cost-svg"></svg>
 							</div>
 							<!--div class="cost-desc">
 								<div class="cost-title">
@@ -195,3 +195,18 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	function formatJSON(json) {
+		var formatted = [];
+		for( var i = 0; i < json.length; i++ ) {
+		formatted.push( { name:json[i][0], quantity:parseFloat(json[i][1]) } );	
+		}
+		return formatted;
+	}
+	
+	var fixedCosts = formatJSON( <%= raw @fcost[1, @fcost.length-1].to_json %> );
+	var variableCosts = formatJSON( <%= raw @vcost[1, @vcost.length-1].to_json %> );
+	var capitalCosts = formatJSON( <%= raw @ccost[1, @ccost.length-1].to_json %> );
+	
+</script>

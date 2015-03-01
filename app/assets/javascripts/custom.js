@@ -58,7 +58,7 @@ function createPieChart(selector, data, n, colorScale, legendWidth, legendXOffse
   			return (width/2 - (legendColumns/2*legendWidth)) + (i%legendColumns)*legendWidth + legendXOffset//(width*4/6))
   		})
   		.attr("y", function(d, i) {
-  			return height + 16 * Math.floor(i/legendColumns) - 16;//height/2 - (2.5*16) + i*16;
+  			return height + 16 * Math.floor(i/legendColumns) - 16 + legendYOffset;//height/2 - (2.5*16) + i*16;
   		} );
 
   $svg.selectAll(".pie-legend-square")
@@ -75,11 +75,36 @@ function createPieChart(selector, data, n, colorScale, legendWidth, legendXOffse
   			return (width/2 - (legendColumns/2*legendWidth)) + (i%legendColumns)*legendWidth - 18 + legendXOffset//(width*4/6))
   		})
   		.attr("y", function(d, i) {
-  			return height - 24 + 16 * Math.floor(i/legendColumns);//height/2 - (2.5*16) + i*16 - 8;
+  			return height - 24 + 16 * Math.floor(i/legendColumns) + legendYOffset;//height/2 - (2.5*16) + i*16 - 8;
   		} );
 }
 
 function createBarChart() {
+}
+
+function createFixedCostGraph(data) {
+	createPieChart("#svg-fixed-cost",
+		data, 8,
+		["#D79284","#BD4932", "#DB9E36", "#FFD34E","#8A8a19", "#105B63", "#2b8387",
+		  "#6b246b"],
+		200, 15, -10, 2);
+}
+
+function createVariableCostGraph(data) {
+	createPieChart("#svg-variable-cost",
+		data, 2,
+		["#BD4932","#DB9E36"],
+		200, 70, 0, 2);
+}
+
+function createCapitalCostGraph(data) {
+	createPieChart("#svg-capital-cost",
+		data, 16,
+		[ "#BD4932", "#D79284", "#E6B687", "#DB9E36", "#f2bf18", "#FFD34E", 
+		"#Fafa5F", "#8A8a19", "#7abda9", "#31CC9D",
+		"#0AE3FA", "#19CDE0", "#30A4b0", "#2b8387", "#105B63", "#6b246b"
+		 ],
+		220, 25, -70, 2);
 }
 
 function createAllowanceGraph(data) {
@@ -346,23 +371,37 @@ function ready() {
 	// 	console.log("wew");
 	// });
 
-	if(flavors)
-		createFlavorGraph(flavors);
+	// For Financial Analysis
 
-	if(allowances)
+	if(typeof fixedCosts !== 'undefined')
+		createFixedCostGraph(fixedCosts);
+	
+	if(typeof variableCosts !== 'undefined')
+		createVariableCostGraph(variableCosts);
+	
+	if(typeof capitalCosts !== 'undefined')
+		createCapitalCostGraph(capitalCosts);
+
+	// For Dashboard/Market Study Analysis
+
+	if(typeof flavors !== 'undefined')
+		createFlavorGraph(flavors);
+	
+	if(typeof allowances !== 'undefined')
 		createAllowanceGraph(allowances);
 
-	if(places)
+	if(typeof places !== 'undefined')
 		createPlacesGraph(places);
 
-	if(willingness)
+	if(typeof willingness!== 'undefined')
 		createWillingnessGraph(willingness);
 
-	if(willingnessToPay)
+	if(typeof willingnessToPay !== 'undefined')
 		createWillingnessToPayGraph(willingnessToPay);
 
-	if(cleanliness)
+	if(typeof cleanliness !== 'undefined')
 		createCleanlinessGraph(cleanliness);
+
 }
 
 $(document).ready(ready)
