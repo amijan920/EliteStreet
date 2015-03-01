@@ -10,70 +10,7 @@
 					</div>
 				</div>
 			</div>
-
-			<!-- <div class="sub-content" align="center">
-					<div class="row">
-						<div class="col-md-12" >
-							<div class="dept-kpi">
-								<div class="active-details">
-									<div class="active-name"><%= @kpiList[0][0].measure %></div>
-								</div>
-								<div class="kpi-svg">
-											<image class="active-image img-responsive" src="assets/graph-mock-good.png" class="img-responsive"/>
-								</div>
-								<div class="perspective-heading" align="center">
-									<div class="perspective-menu active">Financial</div>
-									<div class="perspective-menu">Internal Processes</div>
-									<div class="perspective-menu">Customer</div>
-									<div class="perspective-menu">Employee Growth</div>
-								</div>
-								<% @kpiList.each_with_index do |pers, i| %>
-								<div class="kpi-table-container">
-									<table class="table kpi-table <%if i!=0%>hide<%end%>" id="table-<%=i%>">
-										<tr>
-											<th class="col-md-3">Department</th>
-											<th class="col-md-7">Measure</th>
-											<th class="meas-cell col-md-1">Status</th>
-											<th class="meas-cell col-md-1">Details</th>
-										</tr>
-										<% pers.each_with_index do |row, j|%>
-											<% if j == 0 %>
-												<tr class="kpi-entry active" data-dept="<%=i%>" data-index="<%=j%>">
-											<% else %>
-												<tr class="kpi-entry" data-dept="<%=i%>" data-index="<%=j%>">
-											<%end%>
-												<td><%= @departments[i][j].name %></td>
-												<td><%= row.measure %></td>
-
-												<% random_v = @rands[i][j] %>
-												<% if row.good_m == 4 %>
-													<% if random_v >= row.good_d%>
-														<td class="good-cell"><%=random_v%></td>
-													<% elsif random_v >= row.warning_d%>
-														<td class="warning-cell"><%=random_v%></td>
-													<% else %>
-														<td class="bad-cell"><%=random_v%></td>
-													<%end%>
-												<% else %>
-													<% if random_v <= row.good_d%>
-														<td class="good-cell"><%=random_v%></td>
-													<% elsif random_v <= row.warning_d%>
-														<td class="warning-cell"><%=random_v%></td>
-													<% else %>
-														<td class="bad-cell"><%=random_v%></td>
-													<%end%>
-												<% end %>
-												<td class="neutral-cell details" data-dept="<%=i%>" data-index="<%=j%>">Details</td>
-											</tr>
-										<% end %>
-									</table>
-								</div>
-								<% end %>
-							</div>
-						</div>
-					</div>
-			</div> -->
-
+			
 			<% @kpiList.each_with_index do |pers, i| %>
 				<div class="sub-content" align="center"  id="kpi-<%=i%>">
 					<div class="row">

@@ -473,4 +473,27 @@ body {
 	background-color: #e5aa53;
 }
 
+.right-cell {
+	border-right-width: 2px !important;
+	border-right-color: #888888 !important;
+}
+
+.basket-table > tbody > tr > th {
+	background: #BD4932;
+	color:white;
+}
+
+.zero-cell {
+	background:#E5E5E5;
+	color:#888888;
+}
+
+.one-cell:hover {
+	background:#F0F0F0;
+}
+
+.zero-cell:hover {
+	background:#D6D6D6;
+}
+
 /*BD4932, DB9E36, FFD34E, FFFAD5, 105B63*/

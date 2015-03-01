@@ -77,6 +77,12 @@ class PageController < ApplicationController
 		@page = 'strategic-map'
 	end
 
+	def viewMarketBasketAnalysis
+		@basket = CSV.read("app/assets/data/basket_analysis.csv")
+		@basket_res = CSV.read("app/assets/data/apriori-output.csv")
+		@page = 'market-basket'
+	end
+
 	def viewDecisionSupport
 		@page = 'decision'
 	end

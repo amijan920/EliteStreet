@@ -383,6 +383,8 @@ function ready() {
 		createCapitalCostGraph(capitalCosts);
 
 	// For Dashboard/Market Study Analysis
+	
+	$('[data-toggle="tooltip"]').tooltip();
 
 	if(typeof flavors !== 'undefined')
 		createFlavorGraph(flavors);

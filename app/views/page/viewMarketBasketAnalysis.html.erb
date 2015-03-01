@@ -1,0 +1,85 @@
+<div class="col-md-12">
+	<div class="row content-box">
+		<div class="col-md-offset-1 col-md-10" >
+			<div class="sub-content sub-content-top" align="center">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="page-heading" align="center">
+							Market Basket Analysis
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="sub-content">
+				<div class="row">
+					<div class="col-md-12" >
+						<p>The group also used the apriori algorithm to look for association rules between what people thought of as important (answered a 3 or 4 in the questionnaire), where they buy street food and how often the buy street food. There were only 4 association rules with support above 50% and at least 2 variables, while there was one with support of 49%.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="sub-content" align="center">
+				<div class="row">
+					<div class="col-md-12" >
+						<div class="pivot-heading" align="center">
+							Analysis Data <small style="float:right; color:#AAAAAA;padding-top:2px">(hover on cell to see variable)</small>
+						</div>
+						<div class="table-responsive">
+							<table  class="table table-condensed table-bordered basket-table"  style="width: 100%;" align="center" >
+								<% @basket.each_with_index do | row, i | %>
+									<% if i == 1
+											next
+										end %>
+									<tr>
+											<% if i == 0 %>
+												<th align="center" valign="middle" rowspan="2"style="text-align:center;vertical-align:middle;">Itemset ID</th>
+											<% elsif i == 2 %>
+
+											<% else %>
+												<td align="center"><%= i-2%></td>
+											<% end %>
+										<% row.each_with_index do | col, j | %>
+											<% if i == 0 %>
+												<th colspan="<% if j == 1%> 8 <% else %> 6 <% end %>" align="center" style="text-align:center;" <% if j < 2 %>class="right-cell col-md-3"<% end %>> <%= col %> </th>
+											<% elsif i == 1 %>
+												<th align="center"> <%= col %> </th>
+											<% elsif i == 2%>
+												<th align="center" <% if j == 5 || j == 13 %>class="right-cell"<% end %>><div  data-toggle="tooltip" data-placement="top" title="<%= @basket[i-1][j] %>" style="text-align:center;"> <%= col %></div></th>
+											<% else %>
+												<% if j == 5 || j == 13 %>
+													<td class="right-cell <% if col == "0" %>zero-cell<% else %>one-cell<% end %>" style="text-align:center;"><div  data-toggle="tooltip" data-placement="top" title="<%= @basket[1][j] %>" style="text-align:center;"> <%= col %></div></td>
+												<% else %>
+													<td class="<% if col == "0" %>zero-cell<% else %>one-cell<% end %>" style="text-align:center;"><div  data-toggle="tooltip" data-placement="top" title="<%= @basket[1][j] %>" style="text-align:center;"> <%= col %></div></td>
+												<% end %>
+												
+											<% end %>
+										<% end %>
+									</tr>
+								<% end %>
+							</table>
+						</div>
+
+						<div class="table-responsive">
+							<table  class="table table-condensed table-bordered basket-table"  style="width: 100%;" align="center" >
+								<% @basket_res.each_with_index do | row, i | %>
+									<tr>
+										<% row.each_with_index do | col, j | %>
+											<% if i == 0 %>
+												<th align="center" class="col-md-<%if j < 2%>2<%else%>8<%end%>" style="text-align:center;"> <%= col %> </th>
+											<% else %>
+												<td align="center"><%= col %></td>
+											<% end %>
+										<% end %>
+									</tr>
+								<% end %>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
