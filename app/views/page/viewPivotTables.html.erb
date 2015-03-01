@@ -44,12 +44,9 @@
 											<%end%>
 										</tr>
 									<% end %>
-									
-								</table>
-								<table class="table res-table table-bordered">
-									<tr><th class="res">Chi-Square</th><td class="res-val"align="center"><%= @chi_square[k] %></td></tr>
-									<tr><th class="res">Degree of Freedom</th><td class="res-val"align="center"><%= @freedom[k] %></td></tr>
-									<tr><th class="res">Probability</th><td class="res-val"align="center"><%= @probability[k] %></td></tr>
+									<tr><th class="res">Chi-Square</th><td class="res-val" colspan="<%= pivot[2].length-1 %>" align="center"><%= @chi_square[k] %></td></tr>
+									<tr><th class="res">Degree of Freedom</th><td class="res-val" colspan="<%= pivot[2].length-1 %>" align="center"><%= @freedom[k] %></td></tr>
+									<tr><th class="res">Probability</th><td class="res-val" colspan="<%= pivot[2].length-1 %>" align="center"><%= @probability[k] %></td></tr>
 								</table>
 							</div>
 						</div>

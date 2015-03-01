@@ -458,19 +458,14 @@ body {
 }
 
 .res {
-	background:#1d6b72;
+	background:#DB9E36;
 	color:white;
 }
 
 .res-val {
-	background: #1d6b72;
+	background: #DB9E36;
 	font-weight: 700;
 	color:white;
-}
-
-.res-table, th, td {
-    /*border: none !important;*/
-    margin-top:-20px;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
