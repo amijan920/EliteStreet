@@ -1,3 +1,7 @@
+
+<%= render "page/fixed_breakdown_modal" %>
+<%= render "page/capital_breakdown_modal" %>
+
 <div class="col-md-12">
 	<div class="row content-box">
 		<div class="col-md-offset-1 col-md-10">
@@ -45,7 +49,7 @@
 					<div class="col-md-12">
 						<div class="cost">
 							<div class="cost-heading" align="center">
-								Fixed Cost
+								<%= link_to "Fixed Cost", "#fixedBreakdownModal", "data-toggle" => "modal" %>
 							</div>
 						</div>
 					</div>
@@ -147,7 +151,7 @@
 					<div class="col-md-12">
 						<div class="cost">
 							<div class="cost-heading" align="center">
-								Capital Cost
+								<%= link_to "Capital Cost", "#capitalBreakdownModal", "data-toggle" => "modal" %>
 							</div>
 						</div>
 					</div>

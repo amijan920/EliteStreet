@@ -109,6 +109,15 @@
 	text-align: left;
 }
 
+.cost-heading a {
+	font-size:1em;
+	padding:0px;
+	background:#105b63;
+	color:#FFFFFF;
+	text-align: left;
+}
+
+
 .cost-heading .small{
 	padding:2px;
 	font-size:.8em;
