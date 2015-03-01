@@ -496,4 +496,8 @@ body {
 	background:#D6D6D6;
 }
 
+.dept-title a:hover {
+	cursor:pointer;
+}
+
 /*BD4932, DB9E36, FFD34E, FFFAD5, 105B63*/
