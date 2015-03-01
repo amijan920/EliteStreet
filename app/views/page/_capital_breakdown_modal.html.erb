@@ -1,0 +1,48 @@
+<!-- Capital Breakdown Modal -->
+<div class="modal fade" id="capitalBreakdownModal" tabindex="-1" role="dialog" aria-labelledby="capitalBreakdownModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="capitalBreakdownModalLabel">Breakdown of Capital Costs</h4>
+			</div>
+			<div class="modal-body">
+				<% i=-1 %>
+				<% while i < @cbcost.length-1 do %>
+					<% i+=1 %>
+					<% first = true %>
+					<table class="table cost-table">
+						<% if first %>
+							<tr class="cost-heading">
+								<th><%=@cbcost[i][0]%></th>
+								<th></th>
+							</tr>
+							<% first = false %>
+							<tr>
+								<th>Capital Cost</th>
+								<th>Cost in Php</th>
+							</tr>
+						<% end %>
+						<% for j in 1..(@cbcost.length-1-i) %>
+							<tr class="cost-entry">
+								<% if @cbcost[i+j][0]=="TOTAL" %>
+									<th><%= @cbcost[i+j][0] %></th>
+									<th><%= @cbcost[i+j][1] %></th>
+									<% i=i+j %>
+									<% break %>
+								<% end %>
+								<td><%= @cbcost[i+j][0] %></td>
+								<td><%= @cbcost[i+j][1] %></td>
+							</tr>
+						<% end %>
+						
+					</table>
+				<% end %>
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+			</div>
+		</div>
+	</div>
+</div>
