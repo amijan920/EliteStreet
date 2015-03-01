@@ -8,11 +8,16 @@
 
 .dept-container .dept-logo-container {
 	height:280px;
+	background:#105b63;
 	/*background: #CCCCCC;*/
 }
 
 .dept-logo-container {
-	padding-top: 25px;
+	height:280px;
+}
+
+.dept-logo-container img{
+	max-height:280px;
 }
 
 .dept-container .dept-desc {

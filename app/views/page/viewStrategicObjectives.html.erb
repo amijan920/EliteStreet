@@ -31,7 +31,8 @@
 			'Gather Customer Feedback',
 			'Meet Revenue Goals'
 		],
-		'strategic-objective' => 'Strong Company image and company-customer relationship'
+		'strategic-objective' => 'Strong Company image and company-customer relationship',
+		'image' => 'assets/logo-market.png'
 	},
 	{ 
 		'name' => 'Product Development',
@@ -40,7 +41,8 @@
 			'Design and Create New Products',
 			'Develop and Improve Existing Products (including packaging)'
 		],
-		'strategic-objective' => 'Product development and innovation'
+		'strategic-objective' => 'Product development and innovation',
+		'image' => 'assets/logo-dev.png'
 	},
 	{ 
 		'name' => 'Production & Delivery',
@@ -48,7 +50,8 @@
 		'functions' => [
 			'Ensure quality and efficient production and distribution of the product'
 		],
-		'strategic-objective' => 'Production and Distribution Leadership'
+		'strategic-objective' => 'Production and Distribution Leadership',
+		'image' => 'assets/logo-prod.png'
 	},
 	{ 
 		'name' => 'Externals & Purchasing',
@@ -57,7 +60,8 @@
 			'Establish partnership and deals with companies of interest',
 			'Buy necessary raw materials'
 		],
-		'strategic-objective' => 'Beneficial Partnerships'
+		'strategic-objective' => 'Beneficial Partnerships',
+		'image' => 'assets/logo-externals.png'
 	},
 	{ 
 		'name' => 'Finance',
@@ -68,7 +72,8 @@
 			'Handle taxes or any other government regulations with regard to finances',
 			'Pay and manage employee salaries and creditors'
 		],
-		'strategic-objective' => 'Streamlined and clear financial systems'
+		'strategic-objective' => 'Streamlined and clear financial systems',
+		'image' => 'assets/logo-acc.png'
 	},
 	{ 
 		'name' => 'Human Resources',
@@ -79,7 +84,8 @@
 			'Dismissal',
 			'Arrange employee benefits'
 		],
-		'strategic-objective' => 'Employee Management'
+		'strategic-objective' => 'Employee Management',
+		'image' => 'assets/logo-hr.png'
 	}
 ] %>
 
@@ -103,7 +109,7 @@
 					<div class="col-md-6" >
 						<div class="dept-container">
 							<div class="dept-logo-container">
-								<img src="assets/logo.png" class="img-responsive"></img>
+								<img src="<%= departments[i*(departments.length/columns-1)+j]['image'] %>" class="img-responsive"></img>
 							</div>
 							<div class="dept-desc">
 								<div class="dept-title">
