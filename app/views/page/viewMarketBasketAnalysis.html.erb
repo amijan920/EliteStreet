@@ -15,10 +15,10 @@
 				<div class="row">
 					<div class="col-md-12" >
 						<div class="pivot-heading" align="center">
-							Analysis Data <small style="float:right; color:#AAAAAA;padding-top:2px">(hover on letter to see variable)</small>
+							Analysis Data <small style="float:right; color:#AAAAAA;padding-top:2px">(hover on cell to see variable)</small>
 						</div>
 						<div class="table-responsive">
-							<table  class="table table-condensed table-bordered table-hover basket-table"  style="width: 100%;" align="center" >
+							<table  class="table table-condensed table-bordered basket-table"  style="width: 100%;" align="center" >
 								<% @basket.each_with_index do | row, i | %>
 									<% if i == 1
 											next
@@ -33,9 +33,9 @@
 												<th align="center" <% if j == 5 || j == 13 %>class="right-cell"<% end %>><div  data-toggle="tooltip" data-placement="top" title="<%= @basket[i-1][j] %>" style="text-align:center;"> <%= col %></div></th>
 											<% else %>
 												<% if j == 5 || j == 13 %>
-													<td class="right-cell <% if col == "0" %>zero-cell<% else %>one-cell<% end %>" style="text-align:center;"> <%= col %> </td>
+													<td class="right-cell <% if col == "0" %>zero-cell<% else %>one-cell<% end %>" style="text-align:center;"><div  data-toggle="tooltip" data-placement="top" title="<%= @basket[1][j] %>" style="text-align:center;"> <%= col %></div></td>
 												<% else %>
-													<td class="<% if col == "0" %>zero-cell<% else %>one-cell<% end %>" style="text-align:center;"> <%= col %> </td>
+													<td class="<% if col == "0" %>zero-cell<% else %>one-cell<% end %>" style="text-align:center;"><div  data-toggle="tooltip" data-placement="top" title="<%= @basket[1][j] %>" style="text-align:center;"> <%= col %></div></td>
 												<% end %>
 												
 											<% end %>

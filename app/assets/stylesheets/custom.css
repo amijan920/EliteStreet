@@ -488,4 +488,12 @@ body {
 	color:#888888;
 }
 
+.one-cell:hover {
+	background:#F0F0F0;
+}
+
+.zero-cell:hover {
+	background:#D6D6D6;
+}
+
 /*BD4932, DB9E36, FFD34E, FFFAD5, 105B63*/
