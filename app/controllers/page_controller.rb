@@ -79,6 +79,7 @@ class PageController < ApplicationController
 
 	def viewMarketBasketAnalysis
 		@basket = CSV.read("app/assets/data/basket_analysis.csv")
+		@basket_res = CSV.read("app/assets/data/apriori-output.csv")
 		@page = 'market-basket'
 	end
 
