@@ -107,14 +107,16 @@
 	background:#105b63;
 	color:#FFFFFF;
 	text-align: left;
+
 }
 
 .cost-heading a {
+	float:right;
 	font-size:1em;
 	padding:0px;
 	background:#105b63;
-	color:#FFFFFF;
-	text-align: left;
+	color:#66c2cc;
+	text-align: right;
 }
 
 
